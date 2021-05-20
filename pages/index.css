@@ -15,3 +15,5 @@
 @import url(../blocks/profile/__profession/profile__profession.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/profile/__add-button-sign/profile__add-button-sign.css);
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copywrite/footer__copywrite.css);
