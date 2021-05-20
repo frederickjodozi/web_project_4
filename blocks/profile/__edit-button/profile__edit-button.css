@@ -1,0 +1,7 @@
+.profile__edit-button {
+    border: 1px solid #FFF;
+    margin: 0 0 0 18px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+}
