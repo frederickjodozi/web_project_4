@@ -1,0 +1,17 @@
+.modal__close-button {
+    position: absolute;
+    top: -48px;
+    right: -48px;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(0,0,0,0);
+    background-image: url(../../../images/modal__close-button.svg);
+    background-position: center;
+    border: none;
+    padding: 0;
+}
+
+.modal__close-button:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}

@@ -1,4 +1,14 @@
 .places__like-button {
     width: 21px;
     height: 19px;
+    background-color: #FFF;
+    background-image: url(../../../images/places__like-button.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+}
+
+.places__like-button:hover {
+    cursor: pointer;
+    opacity: 0.6;
 }
