@@ -1,8 +1,9 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/fonts.css);
 @import url(../blocks/page/page.css);
-@import url(../blocks/overlay/overlay.css);
 @import url(../blocks/modal/modal.css);
+@import url(../blocks/modal/__open/modal__open.css);
+@import url(../blocks/modal/__box/modal__box.css);
 @import url(../blocks/modal/__close-button/modal__close-button.css);
 @import url(../blocks/modal/__title/modal__title.css);
 @import url(../blocks/modal/__form/modal__form.css);
