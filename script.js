@@ -10,28 +10,35 @@ const profileProfession = document.querySelector(".profile__profession");
 const saveButton = document.querySelector(".modal__save-button");
 
 
-profileEditButton.addEventListener("click", function() {
-    modalEL.classList.add("modal__open");
-});
 
+function openModal () {
+    modalEL.classList.add("modal__open");
+}
 
 function closeModal () {
     modalEL.classList.remove("modal__open");  
 }
 
-modalCloseButton.addEventListener("click", function() {
-    closeModal();
-});
+profileEditButton.addEventListener("click", openModal);
+
+modalCloseButton.addEventListener("click", closeModal);
+
+
 
 modalInputName.value = profileName.textContent;
 modalInputProfession.value = profileProfession.textContent;
 
-saveButton.addEventListener("click", function(event) {
+
+
+function saveAndCloseModal(event) {
     event.preventDefault();
     profileName.textContent = modalInputName.value;
     profileProfession.textContent = modalInputProfession.value;
     closeModal();
-});
+}
+
+saveButton.addEventListener("click", saveAndCloseModal);
+
 
 
 const placesLikeButton = document.querySelectorAll(".places__like-button");
