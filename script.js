@@ -9,9 +9,11 @@ const profileName = document.querySelector(".profile__name")
 const profileProfession = document.querySelector(".profile__profession");
 const saveButton = document.querySelector(".modal__save-button");
 
+
 profileEditButton.addEventListener("click", function() {
     modalEL.classList.add("modal__open");
 });
+
 
 function closeModal () {
     modalEL.classList.remove("modal__open");  
@@ -30,6 +32,14 @@ saveButton.addEventListener("click", function(event) {
     profileProfession.textContent = modalInputProfession.value;
     closeModal();
 });
+
+
+const placesLikeButton = document.querySelectorAll(".places__like-button");
+
+for (const element of placesLikeButton) {
+element.addEventListener("click", function () {
+    element.classList.toggle("places__like-button_active");
+})};
 
 
 

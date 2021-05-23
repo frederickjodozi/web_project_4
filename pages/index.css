@@ -28,5 +28,6 @@
 @import url(../blocks/places/__text-area/places__text-area.css);
 @import url(../blocks/places/__title/places__title.css);
 @import url(../blocks/places/__like-button/places__like-button.css);
+@import url(../blocks/places/__like-button/_active/places__like-button_active.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copywrite/footer__copywrite.css);
