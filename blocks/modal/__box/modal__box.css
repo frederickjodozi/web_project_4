@@ -11,3 +11,23 @@
     border-radius: 10px;
     box-sizing: border-box;
 }
+
+@media (max-width: 768px) {
+    .modal__box {
+        width: 350px;
+        height: 326px;
+    }
+}
+
+@media (max-width: 400px) {
+    .modal__box {
+        width: 300px;
+    }
+}
+
+@media (max-width: 320px) {
+    .modal__box {
+        width: 282px;
+        height: 322px;
+    }
+}
