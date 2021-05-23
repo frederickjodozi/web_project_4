@@ -2,7 +2,7 @@
 @import url(../vendor/fonts/fonts.css);
 @import url(../blocks/page/page.css);
 @import url(../blocks/modal/modal.css);
-@import url(../blocks/modal/__open/modal__open.css);
+@import url(../blocks/modal/__open/modal_open.css);
 @import url(../blocks/modal/__box/modal__box.css);
 @import url(../blocks/modal/__close-button/modal__close-button.css);
 @import url(../blocks/modal/__title/modal__title.css);

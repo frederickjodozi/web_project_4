@@ -1,16 +1,8 @@
-# Project 4: Around The U.S.
+# Around The U.S.
+## My fourth project at Practicum by Yandex.
 
-### Overview
+My fourth project at Practicum. This is my first interactive website using Javascript. The user can enter his name and profession into a modal form and the submitted information appears as part of the HTML code in the website.
 
-* Figma
-* Images
+Here is a link to the Github repository: ( "My project")
 
-**Figma**
 
-* [Link to the project in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
-
-**Images**
-
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-
-Have fun with JavaScript!

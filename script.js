@@ -12,11 +12,11 @@ const saveButton = document.querySelector(".modal__save-button");
 
 
 function openModal () {
-    modalEL.classList.add("modal__open");
+    modalEL.classList.add("modal_open");
 }
 
 function closeModal () {
-    modalEL.classList.remove("modal__open");  
+    modalEL.classList.remove("modal_open");  
 }
 
 profileEditButton.addEventListener("click", openModal);
