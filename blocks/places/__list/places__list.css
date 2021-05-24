@@ -20,9 +20,3 @@
         grid-template-columns: 1fr;
     }
 }
-
-@media (max-width: 320px) {
-    .places__list {
-        grid-template-columns: 1fr;
-    }
-}

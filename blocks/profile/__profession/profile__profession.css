@@ -6,6 +6,10 @@
     font-style: normal;
     font-size: 18px;
     line-height: 21.78px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 414px;
 }
 
 @media (max-width: 1024px) {
