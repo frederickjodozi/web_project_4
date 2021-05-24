@@ -7,3 +7,16 @@
     margin: 0;
     padding: 0;
 }
+
+
+@media (max-width: 768px) {
+    .places__list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 320px) {
+    .places__list {
+        grid-template-columns: 1fr;
+    }
+}

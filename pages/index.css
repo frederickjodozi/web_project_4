@@ -24,8 +24,9 @@
 @import url(../blocks/places/places.css);
 @import url(../blocks/places/__list/places__list.css);
 @import url(../blocks/places/__card/places__card.css);
+@import url(../blocks/places/__image-container/places__image-container.css);
 @import url(../blocks/places/__image/places__images.css);
-@import url(../blocks/places/__text-area/places__text-area.css);
+@import url(../blocks/places/__text-container/places__text-container.css);
 @import url(../blocks/places/__title/places__title.css);
 @import url(../blocks/places/__like-button/places__like-button.css);
 @import url(../blocks/places/__like-button/_active/places__like-button_active.css);
