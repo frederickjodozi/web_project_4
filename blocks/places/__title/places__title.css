@@ -20,13 +20,6 @@
 
 @media (max-width: 450px) {
     .places__title {
-        font-size: 13px;
-        line-height: 18px;
-    }
-}
-
-@media (max-width: 320px) {
-    .places__title {
         font-size: 24px;
         line-height: 29px;
     }
