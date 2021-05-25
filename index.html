@@ -13,73 +13,75 @@
     <header class="header">
         <img class="header__logo" src="./images/header__logo.svg" alt="Around the US">
     </header>
-    <section class="profile">
-      <img class="profile__image" src="./images/profile__image.jpg" alt="User profile picture">
-      <div class="profile__info">
-        <div class="profile__info-name">
-          <h1 class="profile__name">Jacques Cousteau</h1>
-          <button class="profile__edit-button" type="submit" aria-label="edit-profile"></button>
+    <main>
+      <section class="profile">
+        <img class="profile__image" src="./images/profile__image.jpg" alt="User profile picture">
+        <div class="profile__info">
+          <div class="profile__info-name">
+            <h1 class="profile__name">Jacques Cousteau</h1>
+            <button class="profile__edit-button" type="submit" aria-label="edit-profile"></button>
+          </div>
+          <h2 class="profile__profession">Explorer</h2>
         </div>
-        <p class="profile__profession">Explorer</p>
-      </div>
-      <button class="profile__add-button" type="submit" aria-label="add-profile"></button>
-    </section>
-    <section class="places">
-      <ul class="places__list">
-        <li class="card__container">
-          <img class="card__image" src="./images/card_yosemite-valley.jpg" alt="Eye level view of Yosemite Valley">
-          <div class="card__text-container">
-            <h2 class="card__title">Yosemite Valley</h2>
-            <button class="card__like-button" type="submit" aria-label="heart-shaped like button"></button>
-          </div>
-        </li>
-        <li class="card__container">
-          <img class="card__image" src="./images/card__lake-louise.jpg" alt="Eye level view of Lake Louise">
-          <div class="card__text-container">
-            <h2 class="card__title">Lake Louise</h2>
-            <button class="card__like-button" type="submit" aria-label="heart-shaped like button"></button>
-          </div>
-        </li>
-        <li class="card__container">
-          <img class="card__image" src="./images/card__bald-mountains.jpg" alt="Bird eye view of the Bald Mountains">
-          <div class="card__text-container">
-            <h2 class="card__title">Bald Mountains</h2>
-            <button class="card__like-button" type="submit" aria-label="heart-shaped like button"></button>
-          </div>
-        </li>
-        <li class="card__container">
-          <img class="card__image" src="./images/card__latemar.jpg" alt="A view up the Latemar mountain">
-          <div class="card__text-container">
-            <h2 class="card__title">Latemar</h2>
-            <button class="card__like-button" type="submit" aria-label="heart-shaped like button"></button>
-          </div>
-        </li>
-        <li class="card__container">
-          <img class="card__image" src="./images/card__vanoise-national-park.jpg" alt="Eye level view of Vanoise National Park">
-          <div class="card__text-container">
-            <h2 class="card__title">Vanoise Park</h2>
-            <button class="card__like-button" type="submit" aria-label="heart-shaped like button"></button>
-          </div>
-        </li>
-        <li class="card__container">
-          <img class="card__image" src="./images/card__lago-di-braies.jpg" alt="Eye level view of Lago di Braies">
-          <div class="card__text-container">
-            <h2 class="card__title">Lago di Braies</h2>
-            <button class="card__like-button" type="submit" aria-label="heart-shaped like button"></button>
-          </div>
-        </li>
-      </ul>
-    </section>
+        <button class="profile__add-button" type="submit" aria-label="add-profile"></button>
+      </section>
+      <section class="places">
+        <ul class="places__list">
+          <li class="card__container">
+            <img class="card__image" src="./images/card_yosemite-valley.jpg" alt="Eye level view of Yosemite Valley">
+            <div class="card__text-container">
+              <h3 class="card__title">Yosemite Valley</h3>
+              <button class="card__like-button" type="submit" aria-label="heart-shaped like button"></button>
+            </div>
+          </li>
+          <li class="card__container">
+            <img class="card__image" src="./images/card__lake-louise.jpg" alt="Eye level view of Lake Louise">
+            <div class="card__text-container">
+              <h3 class="card__title">Lake Louise</h3>
+              <button class="card__like-button" type="submit" aria-label="heart-shaped like button"></button>
+            </div>
+          </li>
+          <li class="card__container">
+            <img class="card__image" src="./images/card__bald-mountains.jpg" alt="Bird eye view of the Bald Mountains">
+            <div class="card__text-container">
+              <h3 class="card__title">Bald Mountains</h3>
+              <button class="card__like-button" type="submit" aria-label="heart-shaped like button"></button>
+            </div>
+          </li>
+          <li class="card__container">
+            <img class="card__image" src="./images/card__latemar.jpg" alt="A view up the Latemar mountain">
+            <div class="card__text-container">
+              <h3 class="card__title">Latemar</h3>
+              <button class="card__like-button" type="submit" aria-label="heart-shaped like button"></button>
+            </div>
+          </li>
+          <li class="card__container">
+            <img class="card__image" src="./images/card__vanoise-national-park.jpg" alt="Eye level view of Vanoise National Park">
+            <div class="card__text-container">
+              <h3 class="card__title">Vanoise Park</h3>
+              <button class="card__like-button" type="submit" aria-label="heart-shaped like button"></button>
+            </div>
+          </li>
+          <li class="card__container">
+            <img class="card__image" src="./images/card__lago-di-braies.jpg" alt="Eye level view of Lago di Braies">
+            <div class="card__text-container">
+              <h3 class="card__title">Lago di Braies</h3>
+              <button class="card__like-button" type="submit" aria-label="heart-shaped like button"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
     <footer class="footer">
       <p class="footer__copyright">© 2021 Around The U.S.</p>
     </footer>  
     <div class="modal">
       <div class="modal__box">
         <button class="modal__close-button" type="submit" aria-label="close"></button>
-        <p class="modal__title">Edit Profile</p>
+        <h4 class="modal__title">Edit Profile</h4>
         <form class="modal__form" name="userForm">
-          <input type="text" name="Name" class="modal__input modal__input_name" placeholder="Jacques Cousteau" required>
-          <input type="text" name="Profession" class="modal__input modal__input_profession" placeholder="Explorer" required>
+          <input type="text" name="Name" class="modal__input modal__input_content_name" placeholder="Jacques Cousteau" required>
+          <input type="text" name="Profession" class="modal__input modal__input_content_profession" placeholder="Explorer" required>
         </form>
         <button class="modal__save-button" type="submit">Save</button>
       </div>

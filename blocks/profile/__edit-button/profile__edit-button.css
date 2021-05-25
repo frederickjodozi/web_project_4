@@ -3,7 +3,7 @@
     margin: 0 0 0 18px;
     width: 24px;
     height: 24px;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0);
     background-image: url(../../../images/profile__edit-button-sign.svg);
     background-repeat: no-repeat;
     background-position: center;
