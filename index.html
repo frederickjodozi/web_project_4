@@ -9,17 +9,6 @@
   <link rel="stylesheet" href="pages/index.css">
 </head>
 <body class="page">
-  <div class="modal">
-    <div class="modal__box">
-      <button class="modal__close-button" type="submit" aria-label="close"></button>
-      <p class="modal__title">Edit Profile</p>
-      <form class="modal__form" name="userForm">
-        <input type="text" name="Name" class="modal__input modal__input_name" placeholder="Jacques Cousteau" required>
-        <input type="text" name="Profession" class="modal__input modal__input_profession" placeholder="Explorer" required>
-      </form>
-      <button class="modal__save-button" type="submit">Save</button>
-    </div>
-  </div>
   <div class="page__wrapper">
     <header class="header">
         <img class="header__logo" src="./images/header__logo.svg" alt="Around the US">
@@ -98,6 +87,17 @@
     <footer class="footer">
       <p class="footer__copywrite">© 2021 Around The U.S.</p>
     </footer>  
+    <div class="modal">
+      <div class="modal__box">
+        <button class="modal__close-button" type="submit" aria-label="close"></button>
+        <p class="modal__title">Edit Profile</p>
+        <form class="modal__form" name="userForm">
+          <input type="text" name="Name" class="modal__input modal__input_name" placeholder="Jacques Cousteau" required>
+          <input type="text" name="Profession" class="modal__input modal__input_profession" placeholder="Explorer" required>
+        </form>
+        <button class="modal__save-button" type="submit">Save</button>
+      </div>
+    </div>
   </div>   
 <script src="./scripts/script.js"></script>
 </body>
