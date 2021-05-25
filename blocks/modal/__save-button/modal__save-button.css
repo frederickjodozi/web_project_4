@@ -1,6 +1,7 @@
 .modal__save-button {
     background-color: #000;
     color: #FFF;
+    margin: 48px 0 0 0;
     padding: 13px 0 18px 0;
     border: none;
     border-radius: 2px;
@@ -20,5 +21,6 @@
     .modal__save-button {
         font-size: 14px;
         line-height: 17px;
+        margin: 46px 0 0 0;
     }
 }

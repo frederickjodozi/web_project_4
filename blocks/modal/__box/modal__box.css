@@ -1,6 +1,5 @@
 .modal__box {
     width: 430px;
-    height: 330px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -14,7 +13,6 @@
 @media (max-width: 768px) {
     .modal__box {
         width: 350px;
-        height: 326px;
     }
 }
 
@@ -27,6 +25,6 @@
 @media (max-width: 320px) {
     .modal__box {
         width: 282px;
-        height: 322px;
+        padding: 25px 22px;
     }
 }
