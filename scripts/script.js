@@ -41,11 +41,11 @@ saveButton.addEventListener("click", saveAndCloseModal);
 
 
 
-const placesLikeButton = document.querySelectorAll(".places__like-button");
+const cardLikeButton = document.querySelectorAll(".card__like-button");
 
-for (const element of placesLikeButton) {
+for (const element of cardLikeButton) {
 element.addEventListener("click", function () {
-    element.classList.toggle("places__like-button_active");
+    element.classList.toggle("card__like-button_active");
 })};
 
 

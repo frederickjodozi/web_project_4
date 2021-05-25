@@ -1,7 +1,7 @@
-.places__like-button {
+.card__like-button {
     width: 21px;
     height: 19px;
-    background-image: url(../../../images/places__like-button.svg);
+    background-image: url(../../../images/card__like-button.svg);
     background-color: #FFF;
     background-position: center;
     background-repeat: no-repeat;
@@ -10,7 +10,7 @@
     border: 0;
 }
 
-.places__like-button:hover {
+.card__like-button:hover {
     cursor: pointer;
     opacity: 0.6;
 }

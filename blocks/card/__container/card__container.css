@@ -1,4 +1,5 @@
-.places__card {
+.card__container {
     background-color: #FFF;
     border-radius: 10px;
+    overflow: hidden;
 }
