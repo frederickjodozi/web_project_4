@@ -2,7 +2,7 @@
     width: 21px;
     height: 19px;
     background-image: url(../../../images/card__like-button.svg);
-    background-color: #FFF;
+    background-color: rgba(0, 0 ,0 ,0);
     background-position: center;
     background-repeat: no-repeat;
     fill: white;
