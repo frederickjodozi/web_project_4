@@ -7,6 +7,13 @@
     margin: 0;
 }
 
+@media (max-width: 768px) {
+    .modal__title {
+        font-size: 21px;
+        line-height: 26px;
+    }
+}
+
 @media (max-width: 320px) {
     .modal__title {
         font-size: 18px;
