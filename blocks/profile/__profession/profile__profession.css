@@ -22,7 +22,6 @@
     .profile__profession {
         padding: 18px;
         font-size: 16px;
-        line-height: 18px;
     }
 }
 @media (max-width: 320px) {
