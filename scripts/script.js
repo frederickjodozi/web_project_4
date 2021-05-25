@@ -7,12 +7,13 @@ const modalInputName = document.querySelector(".modal__input_content_name");
 const modalInputProfession = document.querySelector(".modal__input_content_profession");
 const profileName = document.querySelector(".profile__name")
 const profileProfession = document.querySelector(".profile__profession");
-const saveButton = document.querySelector(".modal__save-button");
-
+const formModal = document.querySelector(".modal__form");
 
 
 function openModal () {
     modalEL.classList.add("modal_open");
+    modalInputName.value = profileName.textContent;
+    modalInputProfession.value = profileProfession.textContent;
 }
 
 function closeModal () {
@@ -25,11 +26,6 @@ modalCloseButton.addEventListener("click", closeModal);
 
 
 
-modalInputName.value = profileName.textContent;
-modalInputProfession.value = profileProfession.textContent;
-
-
-
 function saveAndCloseModal(event) {
     event.preventDefault();
     profileName.textContent = modalInputName.value;
@@ -37,16 +33,16 @@ function saveAndCloseModal(event) {
     closeModal();
 }
 
-saveButton.addEventListener("click", saveAndCloseModal);
+formModal.addEventListener("submit", saveAndCloseModal);
 
 
-
+/*
 const cardLikeButton = document.querySelectorAll(".card__like-button");
 
 for (const element of cardLikeButton) {
 element.addEventListener("click", function () {
     element.classList.toggle("card__like-button_active");
 })};
-
+*/
 
 
