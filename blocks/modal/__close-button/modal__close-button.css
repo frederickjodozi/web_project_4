@@ -23,5 +23,6 @@
         right: 0;
         width: 26px;
         height: 26px;
+        background-image: url(../../../images/modal__close-button_size_small.svg);
     }
 }
