@@ -1,5 +1,5 @@
 // *** Wrappers ***
-const modalEL = document.querySelector(".modal");
+const modalEl = document.querySelector(".modal");
 const formModal = document.querySelector(".modal__form");
 
 // *** DOM elements ***
@@ -15,25 +15,25 @@ const modalInputName = document.querySelector(".modal__input_content_name");
 const modalInputProfession = document.querySelector(".modal__input_content_profession");
 
 // *** Event listeners ***
-profileEditButton.addEventListener("click", openModal);
-modalCloseButton.addEventListener("click", closeModal);
+profileEditButton.addEventListener("click", toggleModal);
+modalCloseButton.addEventListener("click", toggleModal);
 formModal.addEventListener("submit", saveAndCloseModal);
 
-function openModal () {
-    modalEL.classList.add("modal_open");
-    modalInputName.value = profileName.textContent;
-    modalInputProfession.value = profileProfession.textContent;
-}
 
-function closeModal () {
-    modalEL.classList.remove("modal_open");  
+function toggleModal () {
+    if(modalEl.classList.contains("modal_open")) {
+        modalInputName.value = profileName.textContent;
+        modalInputProfession.value = profileProfession.textContent;
+    }
+
+    modalEl.classList.toggle("modal_open");
 }
 
 function saveAndCloseModal(event) {
     event.preventDefault();
     profileName.textContent = modalInputName.value;
     profileProfession.textContent = modalInputProfession.value;
-    closeModal();
+    toggleModal();
 }
 
 /*
