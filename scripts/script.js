@@ -29,6 +29,9 @@ const initialCards = [
 // *** Wrappers ***
 const editModalEl = document.querySelector(".modal_type_edit");
 const addModalEl = document.querySelector(".modal_type_add");
+const imagePreviewModalEl = document.querySelector(".modal_type_image-preview");
+const imagePreviewEl = imagePreviewModalEl.querySelector(".modal__image")
+const captionPreviewEl = imagePreviewModalEl.querySelector(".modal__caption")
 const editFormModal = document.querySelector(".modal__form_type_edit");
 const addFormModal = document.querySelector(".modal__form_type_add");
 const placesList = document.querySelector(".places__list");
@@ -42,6 +45,7 @@ const profileEditButton = document.querySelector(".profile__edit-button");
 const editModalCloseButton = document.querySelector(".modal__close-button_type_edit");
 const cardAddButton = document.querySelector(".profile__add-button")
 const addModalCloseButton = document.querySelector(".modal__close-button_type_add");
+const imageModalCloseButton = document.querySelector(".modal__close-button_type_image");
 
 // *** Form Data ***
 const modalInputName = document.querySelector(".modal__input_content_name");
@@ -64,6 +68,10 @@ cardAddButton.addEventListener("click", () => {
 
 addModalCloseButton.addEventListener("click", () => {
     toggleModal(addModalEl);
+});
+
+imageModalCloseButton.addEventListener("click", () => {
+    toggleModal(imagePreviewModalEl);
 });
 
 // *** Event listeners (submit) ***
@@ -105,11 +113,17 @@ function generateCard(card) {
 
     nameEl.textContent = card.name;
     imageEl.style.backgroundImage = `url(${card.link})`;
-    return cardEl;
-}
 
-function renderCard(card, cardEl) {
-    cardEl.appendChild(card);
+    imageEl.addEventListener("click", () => {
+        toggleModal(imagePreviewModalEl);
+        imagePreviewEl.src= card.link;
+        captionPreviewEl.textContent = card.name;
+        });
+    return cardEl;
+};
+
+function renderCard(card, container) {
+    container.appendChild(card);
 }
 
 initialCards.forEach((card) => {
@@ -121,6 +135,3 @@ document.querySelectorAll(".card__like-button").forEach(item => {
         item.classList.toggle("card__like-button_active");
     });
 });
-
-
-
