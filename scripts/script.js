@@ -74,6 +74,8 @@ imageModalCloseButton.addEventListener("click", () => {
     toggleModal(imagePreviewModalEl);
 });
 
+
+
 // *** Event listeners (submit) ***
 editFormModal.addEventListener("submit", submitEditModal);
 
@@ -110,6 +112,7 @@ function generateCard(card) {
     const cardEl = cardTemplate.cloneNode(true);
     const nameEl = cardEl.querySelector(".card__title");
     const imageEl = cardEl.querySelector(".card__image");
+    const cardDeleteButton = document.querySelector(".card__delete-button");
 
     nameEl.textContent = card.name;
     imageEl.style.backgroundImage = `url(${card.link})`;
@@ -119,6 +122,10 @@ function generateCard(card) {
         imagePreviewEl.src= card.link;
         captionPreviewEl.textContent = card.name;
         });
+
+    cardDeleteButton.addEventListener("click", () => {
+        cardEl.remove;
+    });
     return cardEl;
 };
 
