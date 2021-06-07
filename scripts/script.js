@@ -26,6 +26,7 @@ const initialCards = [
     },
 ];
 
+
 // *** Wrappers ***
 const editModalEl = document.querySelector(".modal_type_edit");
 const addModalEl = document.querySelector(".modal_type_add");
@@ -52,6 +53,7 @@ const modalInputName = document.querySelector(".modal__input_content_name");
 const modalInputProfession = document.querySelector(".modal__input_content_profession");
 const modalInputCardName = document.querySelector(".modal__input_content_card-name");
 const modalInputCardLink = document.querySelector(".modal__input_content_card-link");
+
 
 // *** Event listeners (click) ***
 profileEditButton.addEventListener("click", () => {
@@ -81,6 +83,7 @@ editFormModal.addEventListener("submit", submitEditModal);
 
 addFormModal.addEventListener("submit", submitAddModal);
 
+
 // *** Modal functions ***
 function toggleModal(modal) {
     if(modal.classList.contains("modal_type_edit")) {
@@ -99,8 +102,8 @@ function submitEditModal(event) {
 
 function submitAddModal(event) {
     event.preventDefault();
-    initialCards.appendChild({name: `${modalInputCardName.value}`, link: `${modalInputCardLink.value}`});
-    
+    const newCard = {name: modalInputCardName.value, link: modalInputCardLink.value};
+    renderCard(generateCard(newCard), placesList);
     toggleModal(addModalEl);
     }
 
@@ -112,7 +115,7 @@ function generateCard(card) {
     const cardEl = cardTemplate.cloneNode(true);
     const nameEl = cardEl.querySelector(".card__title");
     const imageEl = cardEl.querySelector(".card__image");
-    const cardDeleteButton = document.querySelector(".card__delete-button");
+    const likeEl = cardEl.querySelector(".card__like-button");
 
     nameEl.textContent = card.name;
     imageEl.style.backgroundImage = `url(${card.link})`;
@@ -123,22 +126,17 @@ function generateCard(card) {
         captionPreviewEl.textContent = card.name;
         });
 
-    cardDeleteButton.addEventListener("click", () => {
-        cardEl.remove;
+    likeEl.addEventListener("click", () => {
+        likeEl.classList.toggle("card__like-button_active");
     });
+
     return cardEl;
 };
 
 function renderCard(card, container) {
-    container.appendChild(card);
+    container.prepend(card);
 }
 
 initialCards.forEach((card) => {
     renderCard(generateCard(card), placesList);
-});
-
-document.querySelectorAll(".card__like-button").forEach(item => {
-    item.addEventListener("click", () => {
-        item.classList.toggle("card__like-button_active");
-    });
 });
