@@ -44,7 +44,7 @@ const profileProfession = document.querySelector(".profile__profession");
 // *** Buttons ***
 const profileEditButton = document.querySelector(".profile__edit-button");
 const editModalCloseButton = document.querySelector(".modal__close-button_type_edit");
-const cardAddButton = document.querySelector(".profile__add-button")
+const cardAddButton = document.querySelector(".profile__add-button");
 const addModalCloseButton = document.querySelector(".modal__close-button_type_add");
 const imageModalCloseButton = document.querySelector(".modal__close-button_type_image");
 
@@ -57,6 +57,10 @@ const modalInputCardLink = document.querySelector(".modal__input_content_card-li
 
 // *** Event listeners (click) ***
 profileEditButton.addEventListener("click", () => {
+    if(!editModalEl.classList.contains(".modal_open")) {
+        modalInputName.value = profileName.textContent;
+        modalInputProfession.value = profileProfession.textContent;
+    };
     toggleModal(editModalEl);
 });
 
@@ -65,6 +69,10 @@ editModalCloseButton.addEventListener("click", () => {
 });
 
 cardAddButton.addEventListener("click", () => {
+    if(!addModalEl.classList.contains(".modal_open")) {
+        modalInputCardName.value = "";
+        modalInputCardLink.value = "";
+    };
     toggleModal(addModalEl)
 })
 
@@ -86,10 +94,6 @@ addFormModal.addEventListener("submit", submitAddModal);
 
 // *** Modal functions ***
 function toggleModal(modal) {
-    if(modal.classList.contains("modal_type_edit")) {
-        modalInputName.value = profileName.textContent;
-        modalInputProfession.value = profileProfession.textContent;
-    }
     modal.classList.toggle("modal_open");
 }
 
@@ -123,6 +127,7 @@ function generateCard(card) {
     imageEl.addEventListener("click", () => {
         toggleModal(imagePreviewModalEl);
         imagePreviewEl.src= card.link;
+        imagePreviewEl.alt= card.name;
         captionPreviewEl.textContent = card.name;
         });
 
