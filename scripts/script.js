@@ -120,6 +120,8 @@ function generateCard(card) {
     const nameEl = cardEl.querySelector(".card__title");
     const imageEl = cardEl.querySelector(".card__image");
     const likeEl = cardEl.querySelector(".card__like-button");
+    const cardDeleteButton = cardEl.querySelector(".card__delete-button");
+    const cardGet = cardEl.querySelector(".card");
 
     nameEl.textContent = card.name;
     imageEl.style.backgroundImage = `url(${card.link})`;
@@ -133,6 +135,10 @@ function generateCard(card) {
 
     likeEl.addEventListener("click", () => {
         likeEl.classList.toggle("card__like-button_active");
+    });
+
+    cardDeleteButton.addEventListener("click", () => {
+        placesList.removeChild(cardGet);
     });
 
     return cardEl;
