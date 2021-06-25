@@ -27,13 +27,14 @@ const initialCards = [
 ];
 
 // *** Wrappers ***
+const modalEl = document.querySelectorAll(".modal");
 const editModalEl = document.querySelector(".modal_type_edit");
+const editFormModal = document.querySelector(".modal__form_type_edit");
 const addModalEl = document.querySelector(".modal_type_add");
+const addFormModal = document.querySelector(".modal__form_type_add");
 const imagePreviewModalEl = document.querySelector(".modal_type_image-preview");
 const imagePreviewEl = imagePreviewModalEl.querySelector(".modal__image");
 const captionPreviewEl = imagePreviewModalEl.querySelector(".modal__caption");
-const editFormModal = document.querySelector(".modal__form_type_edit");
-const addFormModal = document.querySelector(".modal__form_type_add");
 const placesList = document.querySelector(".places__list");
 
 // *** DOM elements ***
@@ -83,7 +84,21 @@ imageModalCloseButton.addEventListener("click", () => {
     closeModal(imagePreviewModalEl);
 });
 
+modalEl.forEach((modal) => {
+    modal.addEventListener("click", (e) => {
+        if(e.target === modal){
+            closeModal(modal);
+        }
+    });
+});
 
+document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape"){
+        closeModal(editModalEl);
+        closeModal(addModalEl);
+        closeModal(imagePreviewModalEl);
+    }
+});
 
 // *** Event listeners (submit) ***
 editFormModal.addEventListener("submit", submitEditModal);
