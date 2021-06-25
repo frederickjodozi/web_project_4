@@ -26,13 +26,12 @@ const initialCards = [
     },
 ];
 
-
 // *** Wrappers ***
 const editModalEl = document.querySelector(".modal_type_edit");
 const addModalEl = document.querySelector(".modal_type_add");
 const imagePreviewModalEl = document.querySelector(".modal_type_image-preview");
-const imagePreviewEl = imagePreviewModalEl.querySelector(".modal__image")
-const captionPreviewEl = imagePreviewModalEl.querySelector(".modal__caption")
+const imagePreviewEl = imagePreviewModalEl.querySelector(".modal__image");
+const captionPreviewEl = imagePreviewModalEl.querySelector(".modal__caption");
 const editFormModal = document.querySelector(".modal__form_type_edit");
 const addFormModal = document.querySelector(".modal__form_type_add");
 const placesList = document.querySelector(".places__list");
