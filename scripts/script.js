@@ -24,27 +24,40 @@ const addModalCloseButton = document.querySelector(".modal__close-button_type_ad
 const imageModalCloseButton = document.querySelector(".modal__close-button_type_image");
 
 
-
-// *** Form Data ***
+// *** Form data ***
 const modalInputName = document.querySelector(".modal__input_content_name");
 const modalInputProfession = document.querySelector(".modal__input_content_profession");
 const modalInputCardName = document.querySelector(".modal__input_content_card-name");
 const modalInputCardLink = document.querySelector(".modal__input_content_card-link");
 
 
+// *** Input errors ***
+const editInputNameError = document.querySelector("#modal__name-error");
+const editInputProfessionError = document.querySelector("#modal__profession-error");
+const addInputNameError = document.querySelector("#modal__card-name-error");
+const addInputLinkError = document.querySelector("#modal__card-link-error");
+
+
 // *** Event handlers ***
 const openEditModal = (e) => {
     modalInputName.value = profileName.textContent;
+    modalInputName.classList.remove("modal__input-error_active");
+    editInputNameError.textContent = "";
     modalInputProfession.value = profileProfession.textContent;
+    modalInputProfession.classList.remove("modal__input-error_active");
+    editInputProfessionError.textContent = "";
     openModal(editModalEl);
 };
 
 const openAddCardModal = (e) => {
     modalInputCardName.value = "";
+    modalInputCardName.classList.remove("modal__input-error_active");
+    addInputNameError.textContent = "";
     modalInputCardLink.value = "";
+    modalInputCardLink.classList.remove("modal__input-error_active");
+    addInputLinkError.textContent = "";
     cardAddSaveButton.disabled = true;
     cardAddSaveButton.classList.add("modal__save-button_inactive");
-    console.log(cardAddSaveButton);
     openModal(addModalEl);
 };
 
