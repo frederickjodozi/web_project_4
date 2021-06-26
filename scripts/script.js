@@ -19,8 +19,10 @@ const profileProfession = document.querySelector(".profile__profession");
 const profileEditButton = document.querySelector(".profile__edit-button");
 const editModalCloseButton = document.querySelector(".modal__close-button_type_edit");
 const cardAddButton = document.querySelector(".profile__add-button");
+const cardAddSaveButton = document.querySelector(".modal__save-button_type_add");
 const addModalCloseButton = document.querySelector(".modal__close-button_type_add");
 const imageModalCloseButton = document.querySelector(".modal__close-button_type_image");
+
 
 
 // *** Form Data ***
@@ -40,6 +42,9 @@ const openEditModal = (e) => {
 const openAddCardModal = (e) => {
     modalInputCardName.value = "";
     modalInputCardLink.value = "";
+    cardAddSaveButton.disabled = true;
+    cardAddSaveButton.classList.add("modal__save-button_inactive");
+    console.log(cardAddSaveButton);
     openModal(addModalEl);
 };
 
