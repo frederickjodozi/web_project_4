@@ -9,9 +9,11 @@ const imagePreviewEl = imagePreviewModalEl.querySelector(".modal__image");
 const captionPreviewEl = imagePreviewModalEl.querySelector(".modal__caption");
 const placesList = document.querySelector(".places__list");
 
+
 // *** DOM elements ***
 const profileName = document.querySelector(".profile__name");
 const profileProfession = document.querySelector(".profile__profession");
+
 
 // *** Buttons ***
 const profileEditButton = document.querySelector(".profile__edit-button");
@@ -20,6 +22,7 @@ const cardAddButton = document.querySelector(".profile__add-button");
 const addModalCloseButton = document.querySelector(".modal__close-button_type_add");
 const imageModalCloseButton = document.querySelector(".modal__close-button_type_image");
 
+
 // *** Form Data ***
 const modalInputName = document.querySelector(".modal__input_content_name");
 const modalInputProfession = document.querySelector(".modal__input_content_profession");
@@ -27,42 +30,19 @@ const modalInputCardName = document.querySelector(".modal__input_content_card-na
 const modalInputCardLink = document.querySelector(".modal__input_content_card-link");
 
 
-// *** Event listeners (click) ***
-profileEditButton.addEventListener("click", () => {
-    if(!editModalEl.classList.contains("modal_open")) {
-        modalInputName.value = profileName.textContent;
-        modalInputProfession.value = profileProfession.textContent;
-    };
-    openModal(editModalEl);
-});
-
-editModalCloseButton.addEventListener("click", () => {
-    closeModal(editModalEl);
-});
-
-cardAddButton.addEventListener("click", () => {
-    if(!addModalEl.classList.contains("modal_open")) {
-        modalInputCardName.value = "";
-        modalInputCardLink.value = "";
-    };
-    openModal(addModalEl)
-})
-
-addModalCloseButton.addEventListener("click", () => {
-    closeModal(addModalEl);
-});
-
-imageModalCloseButton.addEventListener("click", () => {
-    closeModal(imagePreviewModalEl);
-});
-
-// *** Event listeners (submit) ***
-editFormModal.addEventListener("submit", submitEditModal);
-
-addFormModal.addEventListener("submit", submitAddModal);
-
-
 // *** Event handlers ***
+const openEditModal = (e) => {
+    modalInputName.value = profileName.textContent;
+    modalInputProfession.value = profileProfession.textContent;
+    openModal(editModalEl);
+};
+
+const openAddCardModal = (e) => {
+    modalInputCardName.value = "";
+    modalInputCardLink.value = "";
+    openModal(addModalEl);
+};
+
 const closeModalByClick = (e) => {
     const modalOpen = document.querySelector(".modal_open");
     if(e.target === modalOpen) {
@@ -77,35 +57,60 @@ const closeModalByEscapeKey = (e) => {
     };
 };
 
-// *** Modal functions ***
-function openModal(modal) {
+const openModal = (modal) => {
     modal.classList.add("modal_open");
     modal.addEventListener("click", closeModalByClick);
     document.addEventListener("keydown", closeModalByEscapeKey);
-    };
+};
 
-function closeModal(modal) {
+const closeModal = (modal) => {
     modal.classList.remove("modal_open");
     modal.removeEventListener("click", closeModalByClick);
     document.removeEventListener("keydown", closeModalByEscapeKey);
 };
 
-function submitEditModal(event) {
+const submitEditModal = (event) => {
     event.preventDefault();
     profileName.textContent = modalInputName.value;
     profileProfession.textContent = modalInputProfession.value;
     closeModal(editModalEl);
-}
+};
 
-function submitAddModal(event) {
+const submitAddModal = (event) => {
     event.preventDefault();
     const newCard = {name: modalInputCardName.value, link: modalInputCardLink.value};
     renderCard(generateCard(newCard), placesList);
     closeModal(addModalEl);
-    }
+};
+
+
+// *** Event listeners (click) ***
+profileEditButton.addEventListener("click", openEditModal);
+
+editModalCloseButton.addEventListener("click", () => {
+    closeModal(editModalEl);
+});
+
+cardAddButton.addEventListener("click", openAddCardModal);
+
+addModalCloseButton.addEventListener("click", () => {
+    closeModal(addModalEl);
+});
+
+imageModalCloseButton.addEventListener("click", () => {
+    closeModal(imagePreviewModalEl);
+});
+
+
+// *** Event listeners (submit) ***
+editFormModal.addEventListener("submit", submitEditModal);
+
+addFormModal.addEventListener("submit", submitAddModal);
+
 
 // *** Templates ***
 const cardTemplateContent = document.querySelector(".card__template").content;
+
 
 // *** Card functions ***
 function generateCard(card) {
