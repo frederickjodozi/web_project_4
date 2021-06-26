@@ -1,33 +1,5 @@
-// *** Card array ***
-const initialCards = [ 
-    {
-        name: "Yosemite Valley",
-        link: "images/card__yosemite-valley.jpg"
-    },
-    {
-        name: "Lake Louise",
-        link: "images/card__lake-louise.jpg"
-    },
-    {
-        name: "Bald Mountains",
-        link: "images/card__bald-mountains.jpg"
-    },
-    {
-        name: "Latemar",
-        link: "images/card__latemar.jpg"
-    },
-    {
-        name: "Vanoise Park",
-        link: "images/card__vanoise-national-park.jpg"
-    },
-    {
-        name: "Lago di Braies",
-        link: "images/card__lago-di-braies.jpg"
-    },
-];
-
 // *** Wrappers ***
-const modalEl = document.querySelectorAll(".modal");
+const modals = document.querySelectorAll(".modal");
 const editModalEl = document.querySelector(".modal_type_edit");
 const editFormModal = document.querySelector(".modal__form_type_edit");
 const addModalEl = document.querySelector(".modal_type_add");
@@ -38,7 +10,7 @@ const captionPreviewEl = imagePreviewModalEl.querySelector(".modal__caption");
 const placesList = document.querySelector(".places__list");
 
 // *** DOM elements ***
-const profileName = document.querySelector(".profile__name")
+const profileName = document.querySelector(".profile__name");
 const profileProfession = document.querySelector(".profile__profession");
 
 // *** Buttons ***
@@ -84,36 +56,39 @@ imageModalCloseButton.addEventListener("click", () => {
     closeModal(imagePreviewModalEl);
 });
 
-modalEl.forEach((modal) => {
-    modal.addEventListener("click", (e) => {
-        if(e.target === modal){
-            closeModal(modal);
-        }
-    });
-});
-
-document.addEventListener("keydown", (e) => {
-    if(e.key === "Escape"){
-        closeModal(editModalEl);
-        closeModal(addModalEl);
-        closeModal(imagePreviewModalEl);
-    }
-});
-
 // *** Event listeners (submit) ***
 editFormModal.addEventListener("submit", submitEditModal);
 
 addFormModal.addEventListener("submit", submitAddModal);
 
 
+// *** Event handlers ***
+const closeModalByClick = (e) => {
+    const modalOpen = document.querySelector(".modal_open");
+    if(e.target === modalOpen) {
+        closeModal(modalOpen);
+    };
+};
+
+const closeModalByEscapeKey = (e) => {
+    const modalOpen = document.querySelector(".modal_open");
+    if(e.key === "Escape") {
+        closeModal(modalOpen);
+    };
+};
+
 // *** Modal functions ***
 function openModal(modal) {
     modal.classList.add("modal_open");
-}
+    modal.addEventListener("click", closeModalByClick);
+    document.addEventListener("keydown", closeModalByEscapeKey);
+    };
 
 function closeModal(modal) {
     modal.classList.remove("modal_open");
-}
+    modal.removeEventListener("click", closeModalByClick);
+    document.removeEventListener("keydown", closeModalByEscapeKey);
+};
 
 function submitEditModal(event) {
     event.preventDefault();

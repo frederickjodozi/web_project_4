@@ -50,10 +50,12 @@ const enableValidation = (settings) => {
     });
 }
 
-enableValidation({
+const variableConfig = {
     formSelector: ".modal__form",
     inputSelector: ".modal__input",
     submitButtonSelector: ".modal__save-button",
     errorClass: "modal__input-error_active",
     inactiveButtonClass: "modal__save-button_inactive"
-})
+}
+
+enableValidation(variableConfig);
