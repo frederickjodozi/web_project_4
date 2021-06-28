@@ -46,7 +46,7 @@ const enableValidation = (settings) => {
     const formElements = [...document.querySelectorAll(settings.formSelector)];
     formElements.forEach((formEl) => {
         formEl.addEventListener("submit", (e) => e.preventDefault());
-        setEventListeners(formEl, settings);
+        setEventListeners(formEl, settings); 
     });
 };
 
@@ -54,6 +54,7 @@ const variableConfig = {
     formSelector: ".modal__form",
     inputSelector: ".modal__input",
     submitButtonSelector: ".modal__save-button",
+    inputErrorClass: "modal__input-error",
     errorClass: "modal__input-error_active",
     inactiveButtonClass: "modal__save-button_inactive"
 };

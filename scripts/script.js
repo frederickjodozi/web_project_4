@@ -54,10 +54,13 @@ const openAddCardModal = (e) => {
     modalInputCardName.classList.remove("modal__input-error_active");
     addInputNameError.textContent = "";
     modalInputCardLink.value = "";
-    modalInputCardLink.classList.remove("modal__input-error_active");
-    addInputLinkError.textContent = "";
+    /* I need to change the next two lines and put their function in validate.js. Without these
+    lines the submit button shows active if I enter valid input and then close and reopen the modal,
+    which I believe it shouldnt */
     cardAddSaveButton.disabled = true;
     cardAddSaveButton.classList.add("modal__save-button_inactive");
+    modalInputCardLink.classList.remove("modal__input-error_active");
+    addInputLinkError.textContent = "";
     openModal(addModalEl);
 };
 
