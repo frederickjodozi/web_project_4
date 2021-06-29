@@ -59,4 +59,19 @@ const variableConfig = {
     inactiveButtonClass: "modal__save-button_inactive"
 };
 
+const removeValidationErrors = (settings) => {
+    const inputElements = [...document.querySelectorAll(settings.inputSelector)];
+    inputElements.forEach((inputEl) => {
+        inputEl.classList.remove(settings.errorClass);
+    });
+};
+
+const disableSubmitButton = (settings) => {
+    const submitButtonElements = [...document.querySelectorAll(settings.submitButtonSelector)];
+    submitButtonElements.forEach((submitButton) => {
+        submitButton.disabled = true;
+        submitButton.classList.add(settings.inactiveButtonClass);
+    });
+};
+
 enableValidation(variableConfig);
