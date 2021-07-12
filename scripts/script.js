@@ -1,9 +1,27 @@
+import FormValidator from "./FormValidator.js";
+import initialCards from "./initial-cards.js";
+
+const settings = {
+    _inputSelector: ".modal__input",
+    _submitButtonSelector: ".modal__save-button",
+    _inputErrorClass: "modal__input-error",
+    _errorClass: "modal__input-error_active",
+    _inactiveButtonClass: "modal__save-button_inactive"
+}
+
+const editFormModal = document.querySelector(".modal__form_type_edit");
+const addFormModal = document.querySelector(".modal__form_type_add");
+
+const editFormValidator = new FormValidator(settings, editFormModal);
+const addFormValidator = new FormValidator(settings, addFormModal);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+
 // *** Wrappers ***
 const modals = document.querySelectorAll(".modal");
 const editModalEl = document.querySelector(".modal_type_edit");
-const editFormModal = document.querySelector(".modal__form_type_edit");
 const addModalEl = document.querySelector(".modal_type_add");
-const addFormModal = document.querySelector(".modal__form_type_add");
 const imagePreviewModalEl = document.querySelector(".modal_type_image-preview");
 const imagePreviewEl = imagePreviewModalEl.querySelector(".modal__image");
 const captionPreviewEl = imagePreviewModalEl.querySelector(".modal__caption");
@@ -44,8 +62,8 @@ const openEditModal = (e) => {
     editInputNameError.textContent = "";
     modalInputProfession.value = profileProfession.textContent;
     editInputProfessionError.textContent = "";
-    removeValidationErrors(variableConfig);
-    disableSubmitButton(variableConfig);
+    editFormValidator.removeValidationErrors()
+    editFormValidator.disableSubmitButton()
     openModal(editModalEl);
 };
 
@@ -54,8 +72,8 @@ const openAddCardModal = (e) => {
     addInputNameError.textContent = "";
     modalInputCardLink.value = "";
     addInputLinkError.textContent = "";
-    removeValidationErrors(variableConfig);
-    disableSubmitButton(variableConfig);
+    addFormValidator.removeValidationErrors();
+    addFormValidator.disableSubmitButton();
     openModal(addModalEl);
 };
 

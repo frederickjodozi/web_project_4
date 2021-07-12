@@ -25,3 +25,5 @@ const initialCards = [
         link: "images/card__lago-di-braies.jpg"
     },
 ];
+
+export default initialCards;
