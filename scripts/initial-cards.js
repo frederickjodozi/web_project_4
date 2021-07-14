@@ -1,4 +1,3 @@
-// *** Card array ***
 const initialCards = [ 
     {
         name: "Yosemite Valley",
