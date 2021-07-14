@@ -63,10 +63,15 @@ class FormValidator {
     removeValidationErrors() {
         const inputElements = [...document.querySelectorAll(this._inputSelector)];
         inputElements.forEach((inputEl) => {
-            inputEl.classList.remove(this._errorClass);
+            inputEl.classList.remove(this._errorClass); 
+        });
+
+        const errorElements = [...document.querySelectorAll(".modal__input-error")];
+        errorElements.forEach((errorEl) => {
+            errorEl.textContent = "";
         });
     }
-    
+
     disableSubmitButton() {
         const submitButtonElements = [...document.querySelectorAll(this._submitButtonSelector)];
         submitButtonElements.forEach((submitButtonEl) => {

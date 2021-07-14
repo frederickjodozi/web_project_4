@@ -31,19 +31,10 @@ const modalInputCardName = document.querySelector(".modal__input_content_card-na
 const modalInputCardLink = document.querySelector(".modal__input_content_card-link");
 
 
-// *** Input errors ***
-const editInputNameError = document.querySelector("#modal__name-error");
-const editInputProfessionError = document.querySelector("#modal__profession-error");
-const addInputNameError = document.querySelector("#modal__card-name-error");
-const addInputLinkError = document.querySelector("#modal__card-link-error");
-
-
 // *** Event handlers ***
 const openEditModal = (e) => {
     modalInputName.value = profileName.textContent;
-    editInputNameError.textContent = "";
     modalInputProfession.value = profileProfession.textContent;
-    editInputProfessionError.textContent = "";
     editFormValidator.removeValidationErrors()
     editFormValidator.disableSubmitButton()
     openModal(editModalEl);
@@ -51,9 +42,7 @@ const openEditModal = (e) => {
 
 const openAddCardModal = (e) => {
     modalInputCardName.value = "";
-    addInputNameError.textContent = "";
     modalInputCardLink.value = "";
-    addInputLinkError.textContent = "";
     addFormValidator.removeValidationErrors();
     addFormValidator.disableSubmitButton();
     openModal(addModalEl);
