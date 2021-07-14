@@ -30,9 +30,8 @@ class FormValidator {
             this._submitButtonEl.disabled = false;
             this._submitButtonEl.classList.remove(this._inactiveButtonClass);
         } else {
-            this._submitButtonEl.disabled = false;
-            this._submitButtonEl.classList.remove(this._inactiveButtonClass);
-
+            this._submitButtonEl.disabled = true;
+            this._submitButtonEl.classList.add(this._inactiveButtonClass);
         };
     }
 
@@ -49,9 +48,9 @@ class FormValidator {
         this._submitButtonEl = this._form.querySelector(this._submitButtonSelector);
         
         this._inputElements.forEach((inputEl) => { 
-            inputEl.addEventListener("input", (e) => {
+            inputEl.addEventListener("input", () => {
                 this._checkInputValidity(inputEl);
-                this._toggleButton(this._inputElements, this._submitButtonEl);
+                this._toggleButton();
             });
         });
     }
