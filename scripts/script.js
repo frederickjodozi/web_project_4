@@ -71,7 +71,7 @@ const submitEditModal = (event) => {
 const submitAddModal = (event) => {
     event.preventDefault();
     const newCard = {name: modalInputCardName.value, link: modalInputCardLink.value};
-    renderCard(data, placesList);
+    renderCard(newCard, placesList);
     closeModal(addModalEl);
 }
 
