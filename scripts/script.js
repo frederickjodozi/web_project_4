@@ -1,3 +1,5 @@
+import {openModal, closeModal} from "./utils.js";
+
 // *** Wrappers ***
 const editModalEl = document.querySelector(".modal_type_edit");
 const editFormModal = document.querySelector(".modal__form_type_edit");
@@ -35,12 +37,6 @@ const addInputLinkError = document.querySelector("#modal__card-link-error");
 
 
 // *** Event handlers ***
-const openModal = (modal) => {
-    modal.classList.add("modal_open");
-    modal.addEventListener("click", closeModalByClick);
-    document.addEventListener("keydown", closeModalByEscapeKey);
-}
-
 const openEditModal = (e) => {
     modalInputName.value = profileName.textContent;
     editInputNameError.textContent = "";
@@ -73,26 +69,6 @@ const submitAddModal = (event) => {
     const newCard = {name: modalInputCardName.value, link: modalInputCardLink.value};
     renderCard(newCard, placesList);
     closeModal(addModalEl);
-}
-
-const closeModal = (modal) => {
-    modal.classList.remove("modal_open");
-    modal.removeEventListener("click", closeModalByClick);
-    document.removeEventListener("keydown", closeModalByEscapeKey);
-}
-
-const closeModalByClick = (e) => {
-    const modalOpen = document.querySelector(".modal_open");
-    if(e.target === modalOpen) {
-        closeModal(modalOpen);
-    };
-}
-
-const closeModalByEscapeKey = (e) => {
-    const modalOpen = document.querySelector(".modal_open");
-    if(e.key === "Escape") {
-        closeModal(modalOpen);
-    };
 }
 
 
