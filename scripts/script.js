@@ -1,11 +1,13 @@
-import {openModal, closeModal} from "./utils.js";
+import {openModal, closeModal, imagePreviewModalEl} from "./utils.js";
+import initialCards from "./initial-cards.js";
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
 // *** Wrappers ***
 const editModalEl = document.querySelector(".modal_type_edit");
 const editFormModal = document.querySelector(".modal__form_type_edit");
 const addModalEl = document.querySelector(".modal_type_add");
 const addFormModal = document.querySelector(".modal__form_type_add");
-const imagePreviewModalEl = document.querySelector(".modal_type_image-preview");
 const placesList = document.querySelector(".places__list");
 
 
@@ -97,8 +99,6 @@ addFormModal.addEventListener("submit", submitAddModal);
 
 
 // *** FormValidator ***
-import FormValidator from "./FormValidator.js";
-
 const settings = {
     _inputSelector: ".modal__input",
     _submitButtonSelector: ".modal__save-button",
@@ -115,9 +115,6 @@ addFormValidator.enableValidation();
 
 
 // *** Cards ***
-import Card from "./Card.js";
-import initialCards from "./initial-cards.js";
-
 const cardSelector = ".card__template";
 
 const renderCard = (data, container) => {

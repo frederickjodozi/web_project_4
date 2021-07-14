@@ -1,8 +1,4 @@
-import {openModal} from "./utils.js";
-
-const imagePreviewModalEl = document.querySelector(".modal_type_image-preview");
-const imagePreviewEl = document.querySelector(".modal__image");
-const captionPreviewEl = document.querySelector(".modal__caption");
+import {openModal, imagePreviewModalEl, imagePreviewEl, captionPreviewEl} from "./utils.js";
 
 class Card {
     constructor(data, cardSelector){
@@ -30,7 +26,7 @@ class Card {
     _setEventListeners() {
         this._cardLikeButton = this._element.querySelector(".card__like-button");
         this._cardLikeButton.addEventListener("click", () => this._handleLikeButton());
-        
+
         this._element.querySelector(".card__image").addEventListener("click", () => this._handlePreviewImage());
         this._element.querySelector(".card__delete-button").addEventListener("click", () => this._handleDeleteCard());
 
