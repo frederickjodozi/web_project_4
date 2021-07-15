@@ -25,11 +25,12 @@ class Card {
 
     _setEventListeners() {
         this._cardLikeButton = this._element.querySelector(".card__like-button");
+        this._cardImage = this._element.querySelector(".card__image");
+        this._cardDeleteButton = this._element.querySelector(".card__delete-button");
+
         this._cardLikeButton.addEventListener("click", () => this._handleLikeButton());
-
-        this._element.querySelector(".card__image").addEventListener("click", () => this._handlePreviewImage());
-        this._element.querySelector(".card__delete-button").addEventListener("click", () => this._handleDeleteCard());
-
+        this._cardImage.addEventListener("click", () => this._handlePreviewImage());
+        this._cardDeleteButton.addEventListener("click", () => this._handleDeleteCard());
     }
 
     _getTemplate() {
