@@ -1,27 +1,27 @@
 const initialCards = [ 
     {
-        name: "Yosemite Valley",
-        link: "images/card__yosemite-valley.jpg"
+        name: "Everglade National Park",
+        link: "images/card__everglade.jpg"
     },
     {
-        name: "Lake Louise",
-        link: "images/card__lake-louise.jpg"
+        name: "Navajo Tribal Park",
+        link: "images/card__navajopark.jpg"
     },
     {
-        name: "Bald Mountains",
-        link: "images/card__bald-mountains.jpg"
+        name: "Golden Gate Bridge",
+        link: "images/card__goldengate.jpg"
     },
     {
-        name: "Latemar",
-        link: "images/card__latemar.jpg"
+        name: "Route 66",
+        link: "images/card__route66.jpg"
     },
     {
-        name: "Vanoise Park",
-        link: "images/card__vanoise-national-park.jpg"
+        name: "Yellowstone National Park",
+        link: "images/card__yellowstone.jpg"
     },
     {
-        name: "Lago di Braies",
-        link: "images/card__lago-di-braies.jpg"
+        name: "Grand Canyon",
+        link: "images/card__grandcanyon.jpg"
     },
 ];
 
