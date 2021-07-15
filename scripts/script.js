@@ -104,13 +104,17 @@ addFormValidator.enableValidation();
 
 
 // *** Cards ***
-const cardSelector = ".card__template";
+const cardSelector = ".card__template"; 
 
-const renderCard = (data, container) => {
+const createCard = (data, cardSelector) => {
     const card = new Card(data, cardSelector);
-    container.prepend(card._generateCard(data, cardSelector));
+    return card._generateCard(data, cardSelector);
 }
 
-initialCards.forEach((data) => {
-    renderCard(data, placesList);
-});
+const renderCard = (card, container) => { 
+    container.prepend(card); 
+} 
+
+initialCards.forEach((data) => { 
+    renderCard(createCard(data, cardSelector), placesList); 
+}); 
