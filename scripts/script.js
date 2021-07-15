@@ -41,8 +41,7 @@ const openEditModal = (e) => {
 }
 
 const openAddCardModal = (e) => {
-    modalInputCardName.value = "";
-    modalInputCardLink.value = "";
+    addFormModal.reset();
     addFormValidator.removeValidationErrors();
     addFormValidator.disableSubmitButton();
     openModal(addModalEl);
