@@ -22,16 +22,19 @@ class FormValidator {
     }
 
     _hasValidInputs(){
-        this._inputElements.every((inputEl) => inputEl.validity.valid === true)
+        if(this._inputElements.every((inputEl) => inputEl.validity.valid)) {
+            return true;
+        }
     }
+    
 
     _toggleButton() {
         if(this._hasValidInputs()) {
             this._submitButtonEl.disabled = false;
             this._submitButtonEl.classList.remove(this._inactiveButtonClass);
         } else {
-            this._submitButtonEl.disabled = false;
-            this._submitButtonEl.classList.remove(this._inactiveButtonClass);
+            this._submitButtonEl.disabled = true;
+            this._submitButtonEl.classList.add(this._inactiveButtonClass);
         };
     }
 
