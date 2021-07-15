@@ -35,8 +35,8 @@ const modalInputCardLink = document.querySelector(".modal__input_content_card-li
 const openEditModal = (e) => {
     modalInputName.value = profileName.textContent;
     modalInputProfession.value = profileProfession.textContent;
-    editFormValidator.removeValidationErrors()
-    editFormValidator.disableSubmitButton()
+    editFormValidator.removeValidationErrors();
+    editFormValidator.disableSubmitButton();
     openModal(editModalEl);
 }
 
