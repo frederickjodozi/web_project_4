@@ -1,4 +1,4 @@
-import {openModal, imagePreviewModalEl, imagePreviewEl, captionPreviewEl} from "./utils.js";
+import {openModal, imagePreviewModalEl, imagePreviewEl, captionPreviewEl} from "../utils/constants.js";
 
 class Card {
     constructor(data, cardSelector){
