@@ -117,3 +117,4 @@ const renderCard = (card, container) => {
 initialCards.forEach((data) => { 
     renderCard(createCard(data, cardSelector), placesList); 
 }); 
+

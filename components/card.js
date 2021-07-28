@@ -1,14 +1,15 @@
 import {openModal, imagePreviewModalEl, imagePreviewEl, captionPreviewEl} from "../utils/constants.js";
 
 class Card {
-    constructor(data, cardSelector){
+    constructor({data, handleCardClick}, cardSelector){
         this._name = data.name;
         this._link = data.link;
 
+        this._handleCardCick = handleCardClick;
         this._cardSelector = cardSelector;
     }
 
-    _handlePreviewImage() {
+    _handleCardClick() {
         openModal(imagePreviewModalEl)
         imagePreviewEl.src= this._link;
         imagePreviewEl.alt= this._name;

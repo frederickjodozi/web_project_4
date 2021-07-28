@@ -3,7 +3,7 @@ class Popup {
         this._popupElement = document.querySelector(`.${popupSelector}`);
         this._handleEscUp = this._handleEscUp.bind(this);
     }
-
+    
     open = () => {
         this._popupElement.classList.add("modal_open");
         document.addEventListener("keyup", this._handleEscUp);

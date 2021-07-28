@@ -5,6 +5,5 @@ class PopupWithImage extends Popup {
         imageElement.src = link;
         imageElement.alt = `${name}`;
         super.open();
-        super.setEventListeners();
     }
 }
