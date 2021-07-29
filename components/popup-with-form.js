@@ -7,7 +7,7 @@ class PopupWithForm extends Popup {
 
     _getInputValues() {
         const formElement = document.querySelector('.modal__form');
-        const inputElements = formElement.querySelectorAll('modal__input');
+        const inputElements = formElement.querySelectorAll('.modal__input');
         const formValues = {};
 
         inputElements.forEach((input) => {
@@ -17,11 +17,18 @@ class PopupWithForm extends Popup {
     }
 
     setEventListeners() {
-        this._button = this._popupForm.querySelector('modal__button');
+        this._button = this._popupForm.querySelector('.modal__button');
+        this._closeButton = this._popupForm.querySelector('.modal__close-button');
+
         this._button.addEventListener("submit", (evt) => {
             evt.preventDefault;
             this.close();
         });
+
+        this._closeButton.addEventListener("click", (evt) => {
+            evt.preventDefault;
+            this.close();
+        })
         super.setEventListeners();
     }
 
