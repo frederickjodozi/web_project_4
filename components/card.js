@@ -1,5 +1,3 @@
-import {openModal, imagePreviewModalEl, imagePreviewEl, captionPreviewEl} from "../utils/constants.js";
-
 class Card {
     constructor({data, handleCardClick}, cardSelector){
         this._name = data.name;
@@ -28,7 +26,7 @@ class Card {
         this._cardLikeButton = this._element.querySelector(".card__like-button");
         this._cardImage = this._element.querySelector(".card__image");
         this._cardDeleteButton = this._element.querySelector(".card__delete-button");
-
+        
         this._cardLikeButton.addEventListener("click", () => this._handleLikeButton());
         this._cardImage.addEventListener("click", () => this._handlePreviewImage());
         this._cardDeleteButton.addEventListener("click", () => this._handleDeleteCard());
