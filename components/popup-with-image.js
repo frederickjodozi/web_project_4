@@ -1,3 +1,5 @@
+import "./popup.js";
+
 class PopupWithImage extends Popup {
     open({link, name}) {
         this._popupElement.querySelector('.modal__caption').textContent = name;
