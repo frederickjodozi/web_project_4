@@ -40,7 +40,6 @@ const submitAddModal = (event) => {
     closeModal(addModalEl);
 }
 
-
 // *** Event listeners (click) ***
 profileEditButton.addEventListener("click", openEditModal);
 
@@ -82,15 +81,10 @@ addFormValidator.enableValidation();
 
 
 // *** Cards ***
-const createCard = (data, cardSelector) => {
-    const card = new Card(data, cardSelector);
-    return card._generateCard(data, cardSelector);
-}
-
 const originalCards = new Section({
     items: initialCards, 
     renderer: (item) => {
-        const card = new Card({item, handleCardClick }, cardSelector);
+        const card = new Card({item, handleCardClick}, cardSelector);
         const cardElement = card.generateCard();
         originalCards.addItem(cardElement);
     }
