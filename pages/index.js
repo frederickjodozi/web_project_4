@@ -1,4 +1,7 @@
-import {initialCards, imagePreviewModalEl, imagePreviewEl, captionPreviewEl, cardSelector} from "../utils/constants.js";
+import {initialCards, editModalEl, editFormModal, addModalEl, addFormModal, placesList,
+    profileName, profileProfession, profileEditButton, editModalCloseButton, cardAddButton, addModalCloseButton,
+    imageModalCloseButton, modalInputName, modalInputProfession, modalInputCardName, modalInputCardLink, imagePreviewModalEl,
+     imagePreviewEl, captionPreviewEl, cardSelector} from "../utils/constants.js";
 import handleCardClick from "../utils/utils.js";
 import Card from "../components/card.js";
 import Popup from "../components/popup.js";
@@ -6,35 +9,6 @@ import PopupWithImage from "../components/popup-with-image.js";
 import PopupWithForm from "../components/popup-with-form.js";
 import FormValidator from "../components/form-validator.js";
 import Section from "../components/Section.js";
-
-
-// *** Wrappers ***
-const editModalEl = document.querySelector(".modal_type_edit");
-const editFormModal = document.querySelector(".modal__form_type_edit");
-const addModalEl = document.querySelector(".modal_type_add");
-const addFormModal = document.querySelector(".modal__form_type_add");
-const placesList = document.querySelector(".places__list");
-
-
-// *** DOM elements ***
-const profileName = document.querySelector(".profile__name");
-const profileProfession = document.querySelector(".profile__profession");
-
-
-// *** Buttons ***
-const profileEditButton = document.querySelector(".profile__edit-button");
-const editModalCloseButton = document.querySelector(".modal__close-button_type_edit");
-const cardAddButton = document.querySelector(".profile__add-button");
-const addModalCloseButton = document.querySelector(".modal__close-button_type_add");
-const imageModalCloseButton = document.querySelector(".modal__close-button_type_image");
-
-
-// *** Form data ***
-const modalInputName = document.querySelector(".modal__input_content_name");
-const modalInputProfession = document.querySelector(".modal__input_content_profession");
-const modalInputCardName = document.querySelector(".modal__input_content_card-name");
-const modalInputCardLink = document.querySelector(".modal__input_content_card-link");
-
 
 // *** Event handlers ***
 const openEditModal = (e) => {
@@ -115,10 +89,11 @@ const createCard = (data, cardSelector) => {
 
 const originalCards = new Section({
     items: initialCards, 
-    renderer: item => {
+    renderer: (item) => {
         const card = new Card({item, handleCardClick }, cardSelector);
         const cardElement = card.generateCard();
         originalCards.addItem(cardElement);
-    }, placesList }); 
+    }
+}, placesList);
 
 originalCards.renderItems(); 
