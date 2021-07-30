@@ -1,7 +1,12 @@
-import {openModal, closeModal, imagePreviewModalEl} from "./utils.js";
-import initialCards from "../scripts/initial-cards.js";
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
+import {initialCards, imagePreviewModalEl, imagePreviewEl, captionPreviewEl, cardSelector} from "../utils/constants.js";
+import handleCardClick from "../utils/utils.js";
+import Card from "../components/card.js";
+import Popup from "../components/popup.js";
+import PopupWithImage from "../components/popup-with-image.js";
+import PopupWithForm from "../components/popup-with-form.js";
+import FormValidator from "../components/form-validator.js";
+import Section from "../components/Section.js";
+
 
 // *** Wrappers ***
 const editModalEl = document.querySelector(".modal_type_edit");
@@ -110,10 +115,10 @@ const createCard = (data, cardSelector) => {
 
 const originalCards = new Section({
     items: initialCards, 
-    renderer: (item) => {
-        const card = new Card(item, cardSelector);
-        const cardElement = card._generateCard();
+    renderer: item => {
+        const card = new Card({item, handleCardClick }, cardSelector);
+        const cardElement = card.generateCard();
         originalCards.addItem(cardElement);
     }, placesList }); 
 
-originalCards.renderItems();
+originalCards.renderItems(); 

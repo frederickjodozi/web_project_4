@@ -1,6 +1,6 @@
-import "./popup.js";
+import Popup from "./popup.js";
 
-class PopupWithImage extends Popup {
+export default class PopupWithImage extends Popup {
     open({link, name}) {
         this._popupElement.querySelector('.modal__caption').textContent = name;
         const imageElement = this._popupElement.querySelector('.modal__image');

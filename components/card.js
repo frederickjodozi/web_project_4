@@ -1,4 +1,4 @@
-class Card {
+export default class Card {
     constructor({data, handleCardClick}, cardSelector){
         this._name = data.name;
         this._link = data.link;
@@ -40,13 +40,5 @@ class Card {
     }
 }
 
-/*
-_handleCardClick() {
-    openModal(imagePreviewModalEl)
-    imagePreviewEl.src= this._link;
-    imagePreviewEl.alt= this._name;
-    captionPreviewEl.textContent = this._name;
-}
-*/
 
-export default Card; 
+

@@ -33,5 +33,4 @@ const captionPreviewEl = document.querySelector(".modal__caption");
 // *** Cards ***
 const cardSelector = ".card__template"; 
 
-export {initialCards, openModal, closeModal, closeModalByClick, closeModalByEscapeKey, 
-       imagePreviewModalEl, imagePreviewEl, captionPreviewEl};
+export {initialCards, imagePreviewModalEl, imagePreviewEl, captionPreviewEl, cardSelector};

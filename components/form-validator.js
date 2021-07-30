@@ -1,4 +1,4 @@
-class FormValidator {
+export default class FormValidator {
     constructor(settings, formElement) {
         this._inputSelector = settings._inputSelector;
         this._submitButtonSelector = settings._submitButtonSelector;
@@ -82,5 +82,3 @@ class FormValidator {
         });
     }
 }
-
-export default FormValidator;
