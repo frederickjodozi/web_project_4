@@ -27,7 +27,7 @@ class Card {
         return document.querySelector(this._cardSelector).content.querySelector(".card").cloneNode(true);
     }
 
-    _generateCard() {
+    generateCard() {
         this._element = this._getTemplate();
 
         this._element.querySelector(".card__title").textContent = this._name;
