@@ -1,7 +1,7 @@
 import {initialCards, editModalEl, editFormModal, addModalEl, addFormModal, placesList,
     profileName, profileProfession, profileEditButton, editModalCloseButton, cardAddButton, addModalCloseButton,
-    imageModalCloseButton, modalInputName, modalInputProfession, modalInputCardName, modalInputCardLink, imagePreviewModalEl,
-     imagePreviewEl, captionPreviewEl, cardSelector} from "../utils/constants.js";
+    imageModalCloseButton, modalInputName, modalInputProfession, modalInputCardName, modalInputCardLink,
+    imagePreviewEl, captionPreviewEl, cardSelector} from "../utils/constants.js";
 import handleCardClick from "../utils/utils.js";
 import Card from "../components/card.js";
 import Popup from "../components/popup.js";
@@ -53,9 +53,7 @@ addModalCloseButton.addEventListener("click", () => {
     closeModal(addModalEl);
 });
 
-imageModalCloseButton.addEventListener("click", () => {
-    closeModal(imagePreviewModalEl);
-});
+
 
 
 // *** Event listeners (submit) ***
@@ -78,7 +76,6 @@ const addFormValidator = new FormValidator(settings, addFormModal);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
-
 
 // *** Cards ***
 const originalCards = new Section({

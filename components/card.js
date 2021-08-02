@@ -3,7 +3,7 @@ export default class Card {
         this._name = item.name;
         this._link = item.link;
 
-        this._handleCardCick = handleCardClick;
+        this._handleCardClick = handleCardClick;
         this._cardSelector = cardSelector;
     }
 
@@ -29,12 +29,12 @@ export default class Card {
 
     generateCard() {
         this._element = this._getTemplate();
-
         this._element.querySelector(".card__title").textContent = this._name;
-        this._element.querySelector(".card__image").style.backgroundImage = `url(${this._link})`;
+        this._image = this._element.querySelector(".card__image")
+        this._image.style.backgroundImage = `url(${this._link})`;
 
         this._setEventListeners();
-        this._handleCardCick();
+        this._handleCardClick();
 
         return this._element;
     }

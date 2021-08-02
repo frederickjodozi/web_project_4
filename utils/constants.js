@@ -53,7 +53,7 @@ const modalInputCardName = document.querySelector(".modal__input_content_card-na
 const modalInputCardLink = document.querySelector(".modal__input_content_card-link");
 
 // *** Image Preview Modal ***
-const imagePreviewModalEl = document.querySelector(".modal_type_image-preview");
+const imagePreviewModalEl = "modal_type_image-preview";
 const imagePreviewEl = document.querySelector(".modal__image");
 const captionPreviewEl = document.querySelector(".modal__caption");
 
@@ -62,5 +62,6 @@ const cardSelector = ".card__template";
 
 export {initialCards, editModalEl, editFormModal, addModalEl, addFormModal, placesList,
        profileName, profileProfession, profileEditButton, editModalCloseButton, cardAddButton, addModalCloseButton,
-       imageModalCloseButton, modalInputName, modalInputProfession, modalInputCardName, modalInputCardLink, imagePreviewModalEl,
-        imagePreviewEl, captionPreviewEl, cardSelector}
+       imageModalCloseButton, modalInputName, modalInputProfession, modalInputCardName, modalInputCardLink,
+       imagePreviewEl, imagePreviewModalEl, captionPreviewEl, cardSelector}
+
