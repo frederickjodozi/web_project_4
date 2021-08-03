@@ -29,7 +29,7 @@ const initialCards = [
 const editModalEl = "modal_type_edit";
 const editFormModal = document.querySelector(".modal__form_type_edit");
 const addModalEl = "modal_type_add";
-const addFormModal = "modal__form_type_add";
+const addFormModal = document.querySelector(".modal__form_type_add");
 const placesList = document.querySelector(".places__list");
 
 

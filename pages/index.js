@@ -32,6 +32,11 @@ const addFormPopup = new PopupWithForm(addModalEl, handleAddFormSubmit);
 profileEditButton.addEventListener("click", editFormPopup.open);
 cardAddButton.addEventListener("click", addFormPopup.open);
 
+// *** User Info ***
+/*const userInfo = new userInfo({
+    userNameSelector: profileConfig.profileTitle,
+    userDescriptionSelector: profileConfig.profileDescription
+}); */
 
 // *** FormValidator ***
 const settings = {
@@ -42,11 +47,11 @@ const settings = {
     _inactiveButtonClass: "modal__save-button_inactive"
 }
 
-//const editFormValidator = new FormValidator(settings, editFormModal);
-//const addFormValidator = new FormValidator(settings, addFormModal);
+const editFormValidator = new FormValidator(settings, editFormModal);
+const addFormValidator = new FormValidator(settings, addFormModal);
 
-//editFormValidator.enableValidation();
-//addFormValidator.enableValidation();
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
 
 // *** Cards ***
 const originalCards = new Section({
@@ -59,3 +64,5 @@ const originalCards = new Section({
 }, placesList);
 
 originalCards.renderItems(); 
+
+export {editFormValidator, addFormValidator};
