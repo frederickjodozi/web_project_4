@@ -10,33 +10,23 @@ import PopupWithForm from "../components/popup-with-form.js";
 import FormValidator from "../components/form-validator.js";
 import Section from "../components/Section.js";
 
-// *** Event handlers ***
-const openEditModal = (e) => {
-    modalInputName.value = profileName.textContent;
-    modalInputProfession.value = profileProfession.textContent;
-    editFormValidator.removeValidationErrors();
-    editFormValidator.disableSubmitButton();
-    openModal(editModalEl);
-}
-const openAddCardModal = (e) => {
-    addFormModal.reset();
-    addFormValidator.removeValidationErrors();
-    addFormValidator.disableSubmitButton();
-    openModal(addModalEl);
-}
 
 // *** Forms ***
 const editFormPopup = new PopupWithForm(editModalEl, handleEditFormSubmit);
 const addFormPopup = new PopupWithForm(addModalEl, handleAddFormSubmit);
 
-profileEditButton.addEventListener("click", editFormPopup.open);
-cardAddButton.addEventListener("click", addFormPopup.open);
+profileEditButton.addEventListener("click", () => {
+    editFormPopup.open();
+    editFormValidator.removeValidationErrors();
+    editFormValidator.disableSubmitButton();
+});
 
-// *** User Info ***
-/*const userInfo = new userInfo({
-    userNameSelector: profileConfig.profileTitle,
-    userDescriptionSelector: profileConfig.profileDescription
-}); */
+cardAddButton.addEventListener("click", () => {
+    addFormPopup.open();
+    addFormValidator.removeValidationErrors();
+    addFormValidator.disableSubmitButton();
+});
+
 
 // *** FormValidator ***
 const settings = {
@@ -53,6 +43,13 @@ const addFormValidator = new FormValidator(settings, addFormModal);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
+
+// *** User Info ***
+/*const userInfo = new userInfo({
+    userNameSelector: profileConfig.profileTitle,
+    userDescriptionSelector: profileConfig.profileDescription
+}); */
+
 // *** Cards ***
 const originalCards = new Section({
     items: initialCards, 
@@ -65,4 +62,4 @@ const originalCards = new Section({
 
 originalCards.renderItems(); 
 
-export {editFormValidator, addFormValidator};
+export {editFormValidator, addFormValidator, settings};

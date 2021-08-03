@@ -1,5 +1,4 @@
 import Popup from "./popup.js";
-import FormValidator from "./form-validator.js";
 
 export default class PopupWithForm extends Popup {
     constructor(popupSelector, handleFormSubmit) {
@@ -32,19 +31,13 @@ export default class PopupWithForm extends Popup {
         this._closeButton.addEventListener("click", (evt) => {
             evt.preventDefault;
             this.close();
+            this._popupForm.reset();
         })
         super.setEventListeners();
     }
 
-    open() {
-        FormValidator.removeValidationErrors();
-        FormValidator.disableSubmitButton();
-        super.open();
-    }
-
     close() {
         this._popupForm.reset();
-        console.log(this._popupForm)
         super.close();
     }
 }
