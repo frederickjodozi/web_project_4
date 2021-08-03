@@ -26,10 +26,10 @@ const initialCards = [
    ];
 
    // *** Wrappers ***
-const editModalEl = document.querySelector(".modal_type_edit");
+const editModalEl = "modal_type_edit";
 const editFormModal = document.querySelector(".modal__form_type_edit");
-const addModalEl = document.querySelector(".modal_type_add");
-const addFormModal = document.querySelector(".modal__form_type_add");
+const addModalEl = "modal_type_add";
+const addFormModal = "modal__form_type_add";
 const placesList = document.querySelector(".places__list");
 
 

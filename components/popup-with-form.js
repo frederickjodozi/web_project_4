@@ -1,7 +1,7 @@
 import Popup from "./popup.js";
 
 export default class PopupWithForm extends Popup {
-    constructor({popupSelector, handleFormSubmit}) {
+    constructor(popupSelector, handleFormSubmit) {
         super(popupSelector);
         this._popupForm = this._popupElement.querySelector('.modal__form');
         this._handleFormSubmit = handleFormSubmit;
@@ -19,8 +19,8 @@ export default class PopupWithForm extends Popup {
     }
 
     setEventListeners() {
-        this._button = this._popupForm.querySelector('.modal__button');
-        this._closeButton = this._popupForm.querySelector('.modal__close-button');
+        this._button = this._popupForm.querySelector('.modal__save-button');
+        this._closeButton = this._popupElement.querySelector('.modal__close-button');
 
         this._button.addEventListener("submit", (evt) => {
             evt.preventDefault;

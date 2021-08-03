@@ -2,7 +2,7 @@ import {initialCards, editModalEl, editFormModal, addModalEl, addFormModal, plac
     profileName, profileProfession, profileEditButton, editModalCloseButton, cardAddButton, addModalCloseButton,
     imageModalCloseButton, modalInputName, modalInputProfession, modalInputCardName, modalInputCardLink,
     imagePreviewEl, captionPreviewEl, cardSelector} from "../utils/constants.js";
-import handleCardClick from "../utils/utils.js";
+import {handleCardClick, handleEditFormSubmit, handleAddFormSubmit} from "../utils/utils.js";
 import Card from "../components/card.js";
 import Popup from "../components/popup.js";
 import PopupWithImage from "../components/popup-with-image.js";
@@ -18,7 +18,6 @@ const openEditModal = (e) => {
     editFormValidator.disableSubmitButton();
     openModal(editModalEl);
 }
-
 const openAddCardModal = (e) => {
     addFormModal.reset();
     addFormValidator.removeValidationErrors();
@@ -26,40 +25,12 @@ const openAddCardModal = (e) => {
     openModal(addModalEl);
 }
 
-const submitEditModal = (event) => {
-    event.preventDefault();
-    profileName.textContent = modalInputName.value;
-    profileProfession.textContent = modalInputProfession.value;
-    closeModal(editModalEl);
-}
+// *** Forms ***
+const editFormPopup = new PopupWithForm(editModalEl, handleEditFormSubmit);
+const addFormPopup = new PopupWithForm(addModalEl, handleAddFormSubmit);
 
-const submitAddModal = (event) => {
-    event.preventDefault();
-    const newCard = {name: modalInputCardName.value, link: modalInputCardLink.value};
-    renderCard(createCard(newCard, cardSelector), placesList); 
-    closeModal(addModalEl);
-}
-
-// *** Event listeners (click) ***
-profileEditButton.addEventListener("click", openEditModal);
-
-editModalCloseButton.addEventListener("click", () => {
-    closeModal(editModalEl);
-});
-
-cardAddButton.addEventListener("click", openAddCardModal);
-
-addModalCloseButton.addEventListener("click", () => {
-    closeModal(addModalEl);
-});
-
-
-
-
-// *** Event listeners (submit) ***
-editFormModal.addEventListener("submit", submitEditModal);
-
-addFormModal.addEventListener("submit", submitAddModal);
+profileEditButton.addEventListener("click", editFormPopup.open);
+cardAddButton.addEventListener("click", addFormPopup.open);
 
 
 // *** FormValidator ***
@@ -71,11 +42,11 @@ const settings = {
     _inactiveButtonClass: "modal__save-button_inactive"
 }
 
-const editFormValidator = new FormValidator(settings, editFormModal);
-const addFormValidator = new FormValidator(settings, addFormModal);
+//const editFormValidator = new FormValidator(settings, editFormModal);
+//const addFormValidator = new FormValidator(settings, addFormModal);
 
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();
+//editFormValidator.enableValidation();
+//addFormValidator.enableValidation();
 
 // *** Cards ***
 const originalCards = new Section({
