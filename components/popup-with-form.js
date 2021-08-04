@@ -18,26 +18,26 @@ export default class PopupWithForm extends Popup {
         return this._getInputValues()
     }
 
+    close() {
+        this._popupForm.reset();
+        super.close();
+    }
+
     setEventListeners() {
         this._button = this._popupForm.querySelector('.modal__save-button');
         this._closeButton = this._popupElement.querySelector('.modal__close-button');
 
         this._button.addEventListener("submit", (evt) => {
             evt.preventDefault;
-            this._getInputValues();
+            this._handleFormSubmit(this._getInputValues());
             this.close();
         });
 
         this._closeButton.addEventListener("click", (evt) => {
             evt.preventDefault;
-            this.close();
             this._popupForm.reset();
+            this.close();
         })
         super.setEventListeners();
-    }
-
-    close() {
-        this._popupForm.reset();
-        super.close();
     }
 }

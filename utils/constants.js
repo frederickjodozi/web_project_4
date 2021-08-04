@@ -33,17 +33,14 @@ const addFormModal = document.querySelector(".modal__form_type_add");
 const placesList = document.querySelector(".places__list");
 
 
-// *** DOM elements ***
-const profileName = document.querySelector(".profile__name");
-const profileProfession = document.querySelector(".profile__profession");
-
-
 // *** Buttons ***
 const profileEditButton = document.querySelector(".profile__edit-button");
-const editModalCloseButton = document.querySelector(".modal__close-button_type_edit");
 const cardAddButton = document.querySelector(".profile__add-button");
-const addModalCloseButton = document.querySelector(".modal__close-button_type_add");
-const imageModalCloseButton = document.querySelector(".modal__close-button_type_image");
+
+
+/* // *** DOM elements ***
+const profileName = document.querySelector(".profile__name");
+const profileProfession = document.querySelector(".profile__profession");
 
 
 // *** Form data ***
@@ -51,6 +48,8 @@ const modalInputName = document.querySelector(".modal__input_content_name");
 const modalInputProfession = document.querySelector(".modal__input_content_profession");
 const modalInputCardName = document.querySelector(".modal__input_content_card-name");
 const modalInputCardLink = document.querySelector(".modal__input_content_card-link");
+*/
+
 
 // *** Image Preview Modal ***
 const imagePreviewModalEl = "modal_type_image-preview";
@@ -60,8 +59,6 @@ const captionPreviewEl = document.querySelector(".modal__caption");
 // *** Cards ***
 const cardSelector = ".card__template"; 
 
-export {initialCards, editModalEl, editFormModal, addModalEl, addFormModal, placesList,
-       profileName, profileProfession, profileEditButton, editModalCloseButton, cardAddButton, addModalCloseButton,
-       imageModalCloseButton, modalInputName, modalInputProfession, modalInputCardName, modalInputCardLink,
-       imagePreviewEl, imagePreviewModalEl, captionPreviewEl, cardSelector}
+export {initialCards, cardSelector, placesList, profileEditButton, cardAddButton, editModalEl, editFormModal,
+       addModalEl, addFormModal, imagePreviewEl, imagePreviewModalEl, captionPreviewEl}
 

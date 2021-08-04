@@ -1,7 +1,5 @@
 import PopupWithImage from "../components/popup-with-image.js";
-import {imagePreviewModalEl} from "./constants.js";
-import { imagePreviewEl } from "./constants.js";
-import {captionPreviewEl} from "./constants.js";
+import {imagePreviewModalEl, imagePreviewEl, captionPreviewEl} from "./constants.js";
 
 function handleCardClick () {
     this._image.addEventListener("click", (evt) => {

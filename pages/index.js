@@ -1,14 +1,10 @@
-import {initialCards, editModalEl, editFormModal, addModalEl, addFormModal, placesList,
-    profileName, profileProfession, profileEditButton, editModalCloseButton, cardAddButton, addModalCloseButton,
-    imageModalCloseButton, modalInputName, modalInputProfession, modalInputCardName, modalInputCardLink,
-    imagePreviewEl, captionPreviewEl, cardSelector} from "../utils/constants.js";
+import {initialCards, cardSelector, placesList, editModalEl, editFormModal, addModalEl, addFormModal, profileEditButton,
+       cardAddButton} from "../utils/constants.js";
 import {handleCardClick, handleEditFormSubmit, handleAddFormSubmit} from "../utils/utils.js";
+import Section from "../components/Section.js";
 import Card from "../components/card.js";
-import Popup from "../components/popup.js";
-import PopupWithImage from "../components/popup-with-image.js";
 import PopupWithForm from "../components/popup-with-form.js";
 import FormValidator from "../components/form-validator.js";
-import Section from "../components/Section.js";
 
 
 // *** Forms ***
@@ -29,7 +25,7 @@ cardAddButton.addEventListener("click", () => {
 
 
 // *** FormValidator ***
-const settings = {
+const formSettings = {
     _inputSelector: ".modal__input",
     _submitButtonSelector: ".modal__save-button",
     _inputErrorClass: "modal__input-error",
@@ -37,8 +33,8 @@ const settings = {
     _inactiveButtonClass: "modal__save-button_inactive"
 }
 
-const editFormValidator = new FormValidator(settings, editFormModal);
-const addFormValidator = new FormValidator(settings, addFormModal);
+const editFormValidator = new FormValidator(formSettings, editFormModal);
+const addFormValidator = new FormValidator(formSettings, addFormModal);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
@@ -62,4 +58,4 @@ const originalCards = new Section({
 
 originalCards.renderItems(); 
 
-export {editFormValidator, addFormValidator, settings};
+export {editFormValidator, addFormValidator, formSettings};
