@@ -1,15 +1,40 @@
+import "./styles/index.css";
 import {initialCards, cardSelector, placesList, editModalEl, editFormModal, addModalEl, addFormModal, profileEditButton,
-       cardAddButton} from "../utils/constants.js";
-import {handleCardClick, handleEditFormSubmit, handleAddFormSubmit} from "../utils/utils.js";
-import Section from "../components/Section.js";
-import Card from "../components/card.js";
-import PopupWithForm from "../components/popup-with-form.js";
-import FormValidator from "../components/form-validator.js";
+       cardAddButton, profileName, profileProfession} from "./utils/constants.js";
+import {handleCardClick} from "./utils/utils.js";
+import Section from "./components/Section.js";
+import Card from "./components/card.js";
+import PopupWithForm from "./components/popup-with-form.js";
+import FormValidator from "./components/form-validator.js";
+
+import headerImage from "./images/header__logo.svg";
+import profileImage from "./images/profile__image.jpg";
+
+
+
+// *** Images ***
+const headerLogo = document.querySelector(".header__logo");
+headerLogo.src = headerImage;
+
+const profilePicture = document.querySelector(".profile__image");
+profilePicture.src = profileImage;
+
+
+/*function handleAddFormSubmit (event) {
+    event.preventDefault();
+    const newCard = {name: modalInputCardName.value, link: modalInputCardLink.value};
+    renderCard(createCard(newCard, cardSelector), placesList); 
+} */
+// *** User Info ***
+/*const userInfo = new userInfo({
+    userNameSelector: profileConfig.profileTitle,
+    userDescriptionSelector: profileConfig.profileDescription
+}); */
 
 
 // *** Forms ***
-const editFormPopup = new PopupWithForm(editModalEl, handleEditFormSubmit);
-const addFormPopup = new PopupWithForm(addModalEl, handleAddFormSubmit);
+const editFormPopup = new PopupWithForm(editModalEl);
+const addFormPopup = new PopupWithForm(addModalEl);
 
 profileEditButton.addEventListener("click", () => {
     editFormPopup.open();
@@ -40,12 +65,6 @@ editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
 
-// *** User Info ***
-/*const userInfo = new userInfo({
-    userNameSelector: profileConfig.profileTitle,
-    userDescriptionSelector: profileConfig.profileDescription
-}); */
-
 // *** Cards ***
 const originalCards = new Section({
     items: initialCards, 
@@ -58,4 +77,4 @@ const originalCards = new Section({
 
 originalCards.renderItems(); 
 
-export {editFormValidator, addFormValidator, formSettings};
+export {editFormValidator, addFormValidator, formSettings};//
