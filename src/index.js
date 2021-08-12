@@ -1,39 +1,38 @@
 import "./styles/index.css";
 import {initialCards, cardSelector, placesList, editModalEl, editFormModal, addModalEl, addFormModal, profileEditButton,
-       cardAddButton, profileName, profileProfession} from "./utils/constants.js";
+       cardAddButton, profileName, profileProfession, modalInputName, modalInputProfession, modalInputCardName, 
+       modalInputCardLink } from "./utils/constants.js";
 import {handleCardClick} from "./utils/utils.js";
 import Section from "./components/Section.js";
 import Card from "./components/card.js";
 import PopupWithForm from "./components/popup-with-form.js";
+import UserInfo from "./components/userInfo.js";
 import FormValidator from "./components/form-validator.js";
 
 import headerImage from "./images/header__logo.svg";
 import profileImage from "./images/profile__image.jpg";
 
 
-
-// *** Images ***
+// *** Profile ***
 const headerLogo = document.querySelector(".header__logo");
 headerLogo.src = headerImage;
 
 const profilePicture = document.querySelector(".profile__image");
 profilePicture.src = profileImage;
 
-
-/*function handleAddFormSubmit (event) {
-    event.preventDefault();
-    const newCard = {name: modalInputCardName.value, link: modalInputCardLink.value};
-    renderCard(createCard(newCard, cardSelector), placesList); 
-} */
-// *** User Info ***
-/*const userInfo = new userInfo({
-    userNameSelector: profileConfig.profileTitle,
-    userDescriptionSelector: profileConfig.profileDescription
-}); */
+const userInfo = new UserInfo(
+    modalInputName,
+    modalInputProfession,
+    profileName,
+    profileProfession
+);
 
 
 // *** Forms ***
-const editFormPopup = new PopupWithForm(editModalEl);
+const editFormPopup = new PopupWithForm(editModalEl, (data) => {
+    userInfo.setUserInfo({data});
+    });
+
 const addFormPopup = new PopupWithForm(addModalEl);
 
 profileEditButton.addEventListener("click", () => {
@@ -77,4 +76,4 @@ const originalCards = new Section({
 
 originalCards.renderItems(); 
 
-export {editFormValidator, addFormValidator, formSettings};//
+export {editFormValidator, addFormValidator, formSettings};

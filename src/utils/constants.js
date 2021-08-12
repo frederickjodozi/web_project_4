@@ -50,12 +50,12 @@ const profileName = document.querySelector(".profile__name");
 const profileProfession = document.querySelector(".profile__profession");
 
 
-/* // *** Form data ***
+// *** Form data ***
 const modalInputName = document.querySelector(".modal__input_content_name");
 const modalInputProfession = document.querySelector(".modal__input_content_profession");
 const modalInputCardName = document.querySelector(".modal__input_content_card-name");
 const modalInputCardLink = document.querySelector(".modal__input_content_card-link");
-*/
+
 
 
 // *** Image Preview Modal ***
@@ -67,5 +67,6 @@ const captionPreviewEl = document.querySelector(".modal__caption");
 const cardSelector = ".card__template"; 
 
 export {initialCards, cardSelector, placesList, profileEditButton, cardAddButton, editModalEl, editFormModal, addModalEl,
-       addFormModal, profileName, profileProfession, imagePreviewEl, imagePreviewModalEl, captionPreviewEl}
+       addFormModal, profileName, profileProfession, imagePreviewEl, imagePreviewModalEl, captionPreviewEl, modalInputName,
+       modalInputProfession, modalInputCardName, modalInputCardLink}
 
