@@ -37,6 +37,7 @@ const addFormPopup = new PopupWithForm(addModalEl);
 
 profileEditButton.addEventListener("click", () => {
     editFormPopup.open();
+    userInfo.getUserInfo();
     editFormValidator.removeValidationErrors();
     editFormValidator.disableSubmitButton();
 });
