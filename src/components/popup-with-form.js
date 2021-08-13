@@ -20,7 +20,7 @@ export default class PopupWithForm extends Popup {
         return this._formValues;
     }
 
-    close() {
+    close = () => {
         this._popupForm.reset();
         super.close();
     }
@@ -29,8 +29,7 @@ export default class PopupWithForm extends Popup {
         this._closeButton = this._popupElement.querySelector('.modal__close-button');
 
         this._popupForm.addEventListener("submit", (evt) => {
-            evt.preventDefault;
-            this._handleFormSubmit(this._getInputValues());
+            evt.preventDefault();
             this.close();
         })
 

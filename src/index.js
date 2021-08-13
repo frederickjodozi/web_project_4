@@ -33,7 +33,11 @@ const editFormPopup = new PopupWithForm(editModalEl, (data) => {
     userInfo.setUserInfo({data});
     });
 
-const addFormPopup = new PopupWithForm(addModalEl);
+const addFormPopup = new PopupWithForm(addModalEl, (data) => {
+    const card = new Card({data, handleCardClick}, cardSelector);
+        const cardElement = card.generateCard();
+        placesList.append(cardElement)
+});
 
 profileEditButton.addEventListener("click", () => {
     editFormPopup.open();
