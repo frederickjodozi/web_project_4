@@ -6,31 +6,32 @@ import cardYellowstonePark from "../images/card__yellowstone.jpg";
 import cardGrandCanyon from "../images/card__grandcanyon.jpg";
 
 const initialCards = [ 
-       {
-           name: "Everglade National Park",
-           link: cardEvergladePark
-       },
-       {
-           name: "Navajo Tribal Park",
-           link: cardNavajoPark
-       },
-       {
-           name: "Golden Gate Bridge",
-           link: cardGoldenGate
-       },
-       {
-           name: "Route 66",
-           link: cardRoute66
-       },
-       {
-           name: "Yellowstone National Park",
-           link: cardYellowstonePark
-       },
-       {
-           name: "Grand Canyon",
-           link: cardGrandCanyon
-       },
-   ];
+    {
+        name: "Everglade National Park",
+        link: cardEvergladePark
+    },
+    {
+        name: "Navajo Tribal Park",
+        link: cardNavajoPark
+    },
+    {
+        name: "Golden Gate Bridge",
+        link: cardGoldenGate
+    },
+    {
+        name: "Route 66",
+        link: cardRoute66
+    },
+    {
+        name: "Yellowstone National Park",
+        link: cardYellowstonePark
+    },
+    {
+        name: "Grand Canyon",
+        link: cardGrandCanyon
+    }
+];
+
 
    // *** Wrappers ***
 const editModalEl = "modal_type_edit";
@@ -56,6 +57,14 @@ const modalInputProfession = document.querySelector(".modal__input_content_profe
 const modalInputCardName = document.querySelector(".modal__input_content_card-name");
 const modalInputCardLink = document.querySelector(".modal__input_content_card-link");
 
+const formSettings = {
+    _inputSelector: ".modal__input",
+    _submitButtonSelector: ".modal__save-button",
+    _inputErrorClass: "modal__input-error",
+    _errorClass: "modal__input-error_active",
+    _inactiveButtonClass: "modal__save-button_inactive"
+}
+
 
 
 // *** Image Preview Modal ***
@@ -66,7 +75,12 @@ const captionPreviewEl = document.querySelector(".modal__caption");
 // *** Cards ***
 const cardSelector = ".card__template"; 
 
+// *** Profile ***
+const headerLogo = document.querySelector(".header__logo");
+const profilePicture = document.querySelector(".profile__image");
+
+
 export {initialCards, cardSelector, placesList, profileEditButton, cardAddButton, editModalEl, editFormModal, addModalEl,
        addFormModal, profileName, profileProfession, imagePreviewEl, imagePreviewModalEl, captionPreviewEl, modalInputName,
-       modalInputProfession, modalInputCardName, modalInputCardLink}
+       modalInputProfession, modalInputCardName, modalInputCardLink, formSettings, headerLogo, profilePicture}
 
