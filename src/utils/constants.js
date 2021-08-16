@@ -54,8 +54,6 @@ const profileProfession = document.querySelector(".profile__profession");
 // *** Form data ***
 const modalInputName = document.querySelector(".modal__input_content_name");
 const modalInputProfession = document.querySelector(".modal__input_content_profession");
-const modalInputCardName = document.querySelector(".modal__input_content_card-name");
-const modalInputCardLink = document.querySelector(".modal__input_content_card-link");
 
 const formSettings = {
     _inputSelector: ".modal__input",
@@ -82,5 +80,5 @@ const profilePicture = document.querySelector(".profile__image");
 
 export {initialCards, cardSelector, placesList, profileEditButton, cardAddButton, editModalEl, editFormModal, addModalEl,
        addFormModal, profileName, profileProfession, imagePreviewEl, imagePreviewModalEl, captionPreviewEl, modalInputName,
-       modalInputProfession, modalInputCardName, modalInputCardLink, formSettings, headerLogo, profilePicture}
+       modalInputProfession, formSettings, headerLogo, profilePicture}
 
