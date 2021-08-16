@@ -8,6 +8,7 @@ export default class Popup {
         this._popupElement.classList.add("modal_open");
         document.addEventListener("keyup", this._handleEscUp);
         this.setEventListeners();
+        console.log(this.setEventListeners)
     }
     
     close() {
