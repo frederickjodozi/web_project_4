@@ -27,7 +27,7 @@ const userInfo = new UserInfo(
 
 // *** Forms ***
 const editFormPopup = new PopupWithForm(editModalEl, (data) => {
-    userInfo.setUserInfo({data});
+    userInfo.setUserInfo(data);
     });
 
 const addFormPopup = new PopupWithForm(addModalEl, (item) => {

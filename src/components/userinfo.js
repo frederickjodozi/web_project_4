@@ -11,7 +11,7 @@ export default class UserInfo {
         this._userprofession.value = this._profileProfession.textContent;
     }
 
-    setUserInfo({data}) {
+    setUserInfo(data) {
         this._profileName.textContent = data.name;
         this._profileProfession.textContent = data.profession;
     }
