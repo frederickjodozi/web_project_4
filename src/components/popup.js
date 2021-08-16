@@ -14,7 +14,13 @@ export default class Popup {
     close() {
         this._popupElement.classList.remove("modal_open");
         document.removeEventListener("keyup", this._handleEscUp);
+        this._popupElement.removeEventListener("click", (evt) => {
+            if(evt.target.classList.contains('modal')) {
+                this.close();
+            }
+        });
     }
+    
 
     _handleEscUp = (evt) => {
         evt.preventDefault(); 
