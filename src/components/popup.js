@@ -23,14 +23,14 @@ export default class Popup {
         }
     }
 
-    _handleModalClick = (evt) => {
+    _handleClick = (evt) => {
         evt.preventDefault();
-        if(evt.target.classList.contains('modal')) {
+        if((evt.target.classList.contains('modal')) || (evt.target.classList.contains('modal__close-button'))) {
             this.close();
         }
     }
 
     setEventListeners() {
-        this._popupElement.addEventListener("click", this._handleModalClick);
+        this._popupElement.addEventListener("click", this._handleClick);
     }
 }
