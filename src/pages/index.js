@@ -1,16 +1,16 @@
-import "./styles/index.css";
+import "../styles/index.css";
 import {initialCards, cardSelector, placesList, editModalEl, editFormModal, addModalEl, addFormModal, profileEditButton,
        cardAddButton, profileName, profileProfession, modalInputName, modalInputProfession, formSettings, headerLogo,
-       profilePicture} from "./utils/constants.js";
-import {handleCardClick} from "./utils/utils.js";
-import Section from "./components/Section.js";
-import Card from "./components/card.js";
-import PopupWithForm from "./components/popup-with-form.js";
-import UserInfo from "./components/userInfo.js";
-import FormValidator from "./components/form-validator.js";
+       profilePicture} from "../utils/constants.js";
+import {handleCardClick} from "../utils/utils.js";
+import Section from "../components/Section.js";
+import Card from "../components/card.js";
+import PopupWithForm from "../components/popup-with-form.js";
+import UserInfo from "../components/userInfo.js";
+import FormValidator from "../components/form-validator.js";
 
-import headerImage from "./images/header__logo.svg";
-import profileImage from "./images/profile__image.jpg";
+import headerImage from "../images/header__logo.svg";
+import profileImage from "../images/profile__image.jpg";
 
 
 // *** Profile ***
