@@ -33,7 +33,7 @@ const editFormPopup = new PopupWithForm(editModalEl, (data) => {
 const addFormPopup = new PopupWithForm(addModalEl, (item) => {
     const card = new Card({item, handleCardClick}, cardSelector);
         const cardElement = card.generateCard();
-        placesList.prepend(cardElement)
+        originalCards.addItem(cardElement);
 });
 
 profileEditButton.addEventListener("click", () => {
