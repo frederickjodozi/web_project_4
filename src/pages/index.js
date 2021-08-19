@@ -17,12 +17,7 @@ import profileImage from "../images/profile__image.jpg";
 headerLogo.src = headerImage;
 profilePicture.src = profileImage;
 
-const userInfo = new UserInfo(
-    modalInputName,
-    modalInputProfession,
-    profileName,
-    profileProfession
-);
+const userInfo = new UserInfo(profileName, profileProfession);
 
 
 // *** Forms ***
@@ -38,7 +33,8 @@ const addFormPopup = new PopupWithForm(addModalEl, (item) => {
 
 profileEditButton.addEventListener("click", () => {
     editFormPopup.open();
-    userInfo.getUserInfo();
+    modalInputName.value = userInfo.getUserInfo().name.textContent;
+    modalInputProfession.value = userInfo.getUserInfo().profession.textContent;
     editFormValidator.removeValidationErrors();
     editFormValidator.disableSubmitButton();
 });
