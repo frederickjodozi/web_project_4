@@ -33,6 +33,7 @@ const addFormPopup = new PopupWithForm(addModalEl, (item) => {
 
 profileEditButton.addEventListener("click", () => {
     editFormPopup.open();
+    console.log(editFormPopup)
     modalInputName.value = userInfo.getUserInfo().name.textContent;
     modalInputProfession.value = userInfo.getUserInfo().profession.textContent;
     editFormValidator.removeValidationErrors();
