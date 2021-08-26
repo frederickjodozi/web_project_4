@@ -10,7 +10,7 @@ export default class Popup {
         this._setEventListeners();
     }
     
-    _close() {
+    close() {
         this._popupElement.classList.remove("modal_open");
         document.removeEventListener("keyup", this._handleEscUp);
         this._popupElement.removeEventListener("click", this._handleClick);
@@ -19,14 +19,14 @@ export default class Popup {
     _handleEscUp = (evt) => {
         evt.preventDefault(); 
         if(evt.key === "Escape") {
-            this._close();
+            this.close();
         }
     }
     
     _handleClick = (evt) => {
         evt.preventDefault();
         if((evt.target.classList.contains('modal')) || (evt.target.classList.contains('modal__close-button'))) {
-            this._close();
+            this.close();
         }
     }
 

@@ -23,6 +23,7 @@ const userInfo = new UserInfo(profileName, profileProfession);
 // *** Forms ***
 const editFormPopup = new PopupWithForm(editModalEl, (data) => {
     userInfo.setUserInfo(data);
+    editFormPopup.close();
     });
 
 const addFormPopup = new PopupWithForm(addModalEl, (item) => {
