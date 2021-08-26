@@ -1,7 +1,8 @@
 import "../pages/index.css";
-import {initialCards, cardSelector, placesList, editModalEl, editFormModal, addModalEl, addFormModal, profileEditButton,
-       cardAddButton, profileName, profileProfession, modalInputName, modalInputProfession, formSettings, headerLogo,
-       profilePicture} from "../utils/constants.js";
+import {initialCards, cardSelector, placesList, editModalEl, editFormModal,
+       addModalEl, addFormModal, profileEditButton, cardAddButton, profileName,
+       profileProfession, modalInputName, modalInputProfession, formSettings,
+       headerLogo, profilePicture} from "../utils/constants.js";
 import {handleCardClick} from "../utils/utils.js";
 import Section from "../components/Section.js";
 import Card from "../components/card.js";
