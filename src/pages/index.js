@@ -1,4 +1,4 @@
-import "../styles/index.css";
+import "../pages/index.css";
 import {initialCards, cardSelector, placesList, editModalEl, editFormModal, addModalEl, addFormModal, profileEditButton,
        cardAddButton, profileName, profileProfession, modalInputName, modalInputProfession, formSettings, headerLogo,
        profilePicture} from "../utils/constants.js";
