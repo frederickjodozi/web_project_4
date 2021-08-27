@@ -47,8 +47,8 @@ const cardAddButton = document.querySelector(".profile__add-button");
 
 
 // *** DOM elements ***
-const profileName = document.querySelector(".profile__name");
-const profileProfession = document.querySelector(".profile__profession");
+const profileName = ".profile__name";
+const profileProfession = ".profile__profession";
 
 
 // *** Form data ***
