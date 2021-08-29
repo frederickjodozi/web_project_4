@@ -3,7 +3,7 @@ import {initialCards, cardSelector, placesList, editModalEl, editFormModal,
        addModalEl, addFormModal, profileEditButton, cardAddButton, profileName,
        profileProfession, modalInputName, modalInputProfession, formSettings,
        headerLogo, profilePicture} from "../utils/constants.js";
-import {handleCardClick} from "../utils/utils.js";
+import {renderItem, handleCardClick} from "../utils/utils.js";
 import Section from "../components/Section.js";
 import Card from "../components/card.js";
 import PopupWithForm from "../components/popup-with-form.js";
@@ -28,9 +28,7 @@ const editFormPopup = new PopupWithForm(editModalEl, (data) => {
     });
 
 const addFormPopup = new PopupWithForm(addModalEl, (item) => {
-    const card = new Card({item, handleCardClick}, cardSelector);
-        const cardElement = card.generateCard();
-        originalCards.addItem(cardElement);
+        originalCards.addItem(renderItem(item));
 });
 
 profileEditButton.addEventListener("click", () => {
@@ -60,9 +58,7 @@ addFormValidator.enableValidation();
 const originalCards = new Section({
     items: initialCards, 
     renderer: (item) => {
-        const card = new Card({item, handleCardClick}, cardSelector);
-        const cardElement = card.generateCard();
-        originalCards.addItem(cardElement);
+        originalCards.addItem(renderItem(item));
     }
 }, placesList);
 

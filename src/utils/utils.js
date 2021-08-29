@@ -1,5 +1,6 @@
 import PopupWithImage from "../components/popup-with-image.js";
-import {imagePreviewModalEl, imagePreviewEl, captionPreviewEl} from "./constants.js";
+import Card from "../components/card.js";
+import {imagePreviewModalEl, imagePreviewEl, captionPreviewEl, cardSelector} from "./constants.js";
 
 function handleCardClick() {
     this._image.addEventListener("click", (evt) => {
@@ -12,4 +13,10 @@ function handleCardClick() {
     });
 }
 
-export {handleCardClick};
+function renderItem(item) {
+    const card = new Card({item, handleCardClick}, cardSelector);
+    const cardElement = card.generateCard();
+    return cardElement;
+}
+
+export {handleCardClick, renderItem};
