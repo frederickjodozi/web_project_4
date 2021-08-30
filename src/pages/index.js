@@ -29,6 +29,7 @@ const editFormPopup = new PopupWithForm(editModalEl, (data) => {
 
 const addFormPopup = new PopupWithForm(addModalEl, (item) => {
         originalCards.addItem(renderItem(item));
+        addFormPopup.close();
 });
 
 profileEditButton.addEventListener("click", () => {

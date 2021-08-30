@@ -24,7 +24,6 @@ export default class Popup {
     }
     
     _handleClick = (evt) => {
-        evt.preventDefault();
         if((evt.target.classList.contains('modal')) || (evt.target.classList.contains('modal__close-button'))) {
             this.close();
         }
