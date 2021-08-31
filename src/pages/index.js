@@ -24,7 +24,7 @@ const userInfo = new UserInfo(profileName, profileProfession);
 const editFormPopup = new PopupWithForm(editModalEl, (data) => {
     userInfo.setUserInfo(data);
     editFormPopup.close();
-    });
+});
 
 const addFormPopup = new PopupWithForm(addModalEl, (item) => {
         originalCards.addItem(renderItem(item));
