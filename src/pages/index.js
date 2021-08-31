@@ -1,11 +1,10 @@
 import "../pages/index.css";
-import {initialCards, cardSelector, placesList, editModalEl, editFormModal,
+import {initialCards, placesList, editModalEl, editFormModal,
        addModalEl, addFormModal, profileEditButton, cardAddButton, profileName,
        profileProfession, modalInputName, modalInputProfession, formSettings,
        headerLogo, profilePicture} from "../utils/constants.js";
-import {renderItem, handleCardClick} from "../utils/utils.js";
+import {renderItem} from "../utils/utils.js";
 import Section from "../components/Section.js";
-import Card from "../components/card.js";
 import PopupWithForm from "../components/popup-with-form.js";
 import UserInfo from "../components/user-info.js";
 import FormValidator from "../components/form-validator.js";
