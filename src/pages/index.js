@@ -34,8 +34,8 @@ const addFormPopup = new PopupWithForm(addModalEl, (item) => {
 profileEditButton.addEventListener("click", () => {
     editFormPopup.open();
     editFormPopup.setEventListeners();
-    modalInputName.value = userInfo.getUserInfo().name.textContent;
-    modalInputProfession.value = userInfo.getUserInfo().profession.textContent;
+    modalInputName.value = userInfo.getUserInfo().name;
+    modalInputProfession.value = userInfo.getUserInfo().profession;
     editFormValidator.removeValidationErrors();
     editFormValidator.disableSubmitButton();
 });
