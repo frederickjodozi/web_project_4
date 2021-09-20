@@ -48,7 +48,7 @@ cardAddButton.addEventListener("click", () => {
 });
 
 
-// *** FormValidator ***
+// *** FormValidator *** 
 const editFormValidator = new FormValidator(formSettings, editFormModal);
 const addFormValidator = new FormValidator(formSettings, addFormModal);
 
