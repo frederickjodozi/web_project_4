@@ -2,7 +2,7 @@ import "../pages/index.css";
 import {placesList, editModalEl, editFormModal, addModalEl, addFormModal, 
        profileEditButton, cardAddButton, profileName, profileProfession,
        modalInputName, modalInputProfession, formSettings,
-       headerLogo, profilePicture} from "../utils/constants.js";
+       headerLogo, profileImage} from "../utils/constants.js";
 import {renderItem} from "../utils/utils.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/popup-with-form.js";
@@ -10,7 +10,6 @@ import UserInfo from "../components/user-info.js";
 import FormValidator from "../components/form-validator.js";
 import Api from "../components/api.js";
 import headerImage from "../images/header__logo.svg";
-import profileImage from "../images/profile__image.jpg";
 
 // *** Api ***
 const api = new Api({
@@ -21,10 +20,12 @@ const api = new Api({
 
 // *** Profile ***
 headerLogo.src = headerImage;
-profilePicture.src = profileImage;
 
-const userInfo = new UserInfo(profileName, profileProfession);
+const userInfo = new UserInfo(profileName, profileProfession, profileImage);
 
+api.getUserInfo().then(info => {
+    userInfo.setUserInfo(info)
+})
 
 // *** Forms ***
 const editFormPopup = new PopupWithForm(editModalEl, (data) => {

@@ -17,7 +17,7 @@ export default class Api {
     }
 
     getUserInfo() {
-        return fetch(`${this._baseUrl}/user/me`, {
+        return fetch(`${this._baseUrl}/users/me`, {
             headers: {
                 authorization: this._authToken
             }

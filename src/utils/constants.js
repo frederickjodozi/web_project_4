@@ -49,6 +49,7 @@ const cardAddButton = document.querySelector(".profile__add-button");
 // *** DOM elements ***
 const profileName = ".profile__name";
 const profileProfession = ".profile__profession";
+const profileImage = ".profile__image";
 
 
 // *** Form data ***
@@ -75,10 +76,9 @@ const cardSelector = ".card__template";
 
 // *** Profile ***
 const headerLogo = document.querySelector(".header__logo");
-const profilePicture = document.querySelector(".profile__image");
 
 
 export {initialCards, cardSelector, placesList, profileEditButton, cardAddButton, editModalEl, editFormModal, addModalEl,
        addFormModal, profileName, profileProfession, imagePreviewEl, imagePreviewModalEl, captionPreviewEl, modalInputName,
-       modalInputProfession, formSettings, headerLogo, profilePicture}
+       modalInputProfession, formSettings, headerLogo, profileImage}
 
