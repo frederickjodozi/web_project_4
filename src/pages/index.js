@@ -1,8 +1,7 @@
 import "../pages/index.css";
-import {placesList, editModalEl, editFormModal, addModalEl, addFormModal, 
-       profileEditButton, cardAddButton, profileName, profileProfession,
-       modalInputName, modalInputProfession, formSettings,
-       headerLogo, profileImage} from "../utils/constants.js";
+import {headerLogo, profileName, profileProfession, profileImage, placesList,
+       editModalEl, editFormModal, addModalEl, addFormModal, profileEditButton,
+       cardAddButton,  modalInputName, modalInputProfession, formSettings} from "../utils/constants.js";
 import {renderItem} from "../utils/utils.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/popup-with-form.js";
