@@ -1,16 +1,22 @@
 import "../pages/index.css";
-import {initialCards, placesList, editModalEl, editFormModal,
-       addModalEl, addFormModal, profileEditButton, cardAddButton, profileName,
-       profileProfession, modalInputName, modalInputProfession, formSettings,
+import {placesList, editModalEl, editFormModal, addModalEl, addFormModal, 
+       profileEditButton, cardAddButton, profileName, profileProfession,
+       modalInputName, modalInputProfession, formSettings,
        headerLogo, profilePicture} from "../utils/constants.js";
 import {renderItem} from "../utils/utils.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/popup-with-form.js";
 import UserInfo from "../components/user-info.js";
 import FormValidator from "../components/form-validator.js";
-
+import Api from "../components/api.js";
 import headerImage from "../images/header__logo.svg";
 import profileImage from "../images/profile__image.jpg";
+
+// *** Api ***
+const api = new Api({
+    baseUrl: "https://around.nomoreparties.co/v1/group-13",
+    authToken: "487d57fd-0c04-4caf-a7fc-6016fd47c784"
+});
 
 
 // *** Profile ***
@@ -57,11 +63,12 @@ addFormValidator.enableValidation();
 
 
 // *** Original Cards ***
-const originalCards = new Section({
-    items: initialCards, 
-    renderer: (item) => {
-        originalCards.addItem(renderItem(item));
-    }
-}, placesList);
-
-originalCards.renderItems(); 
+api.getCards().then(cardData => {
+    const originalCards = new Section({
+        items: cardData, 
+        renderer: (cardData) => {
+            originalCards.addItem(renderItem(cardData));
+        }
+    }, placesList);
+    originalCards.renderItems(); 
+});

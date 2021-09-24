@@ -1,5 +1,5 @@
 export default class Api {
-    constructor(baseUrl, authToken) {
+    constructor({baseUrl, authToken}) {
         this._baseUrl = baseUrl;
         this._authToken = authToken
     }
@@ -10,7 +10,7 @@ export default class Api {
                 authorization: this._authToken
             }
         })
-            .then(res => {res.ok ? res.json() : Promise.reject(`Err: ${res.status}`)})
+            .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
             .catch((err) => {
                 console.log(err);
             });
