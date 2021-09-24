@@ -15,4 +15,16 @@ export default class Api {
                 console.log(err);
             });
     }
+
+    getUserInfo() {
+        return fetch(`${this._baseUrl}/user/me`, {
+            headers: {
+                authorization: this._authToken
+            }
+        })
+        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .catch((err) => {
+            console.log(err);
+        });
+    }
 }
