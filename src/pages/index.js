@@ -23,7 +23,7 @@ headerLogo.src = headerImage;
 const userInfo = new UserInfo(profileName, profileProfession, profileImage);
 
 api.getUserInfo().then(info => {
-    userInfo.setUserInfo(info)
+    userInfo.setUserInfo(info);
 })
 
 // *** Forms ***
