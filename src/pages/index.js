@@ -22,8 +22,8 @@ headerLogo.src = headerImage;
 
 const userInfo = new UserInfo(profileName, profileProfession, profileImage);
 
-api.getUserInfo().then(info => {
-    userInfo.setUserInfo(info);
+api.getUserInfo().then(data => {
+    userInfo.setUserInfo(data);
 })
 
 // *** Forms ***

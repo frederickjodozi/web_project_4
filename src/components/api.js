@@ -27,4 +27,22 @@ export default class Api {
             console.log(err);
         });
     }
+
+    editUserInfo() {
+        fetch(`${this._baseUrl}/users/me`, {
+            method: "PATCH",
+            headers: {
+                authorization: this._authToken,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: "Marie Skłodowska Curie",
+                about: "Physicist and Chemist"
+            })
+        })
+        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .catch((err) => {
+            console.log(err);
+        });
+    }
 }
