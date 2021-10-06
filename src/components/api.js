@@ -28,16 +28,34 @@ export default class Api {
         });
     }
 
-    editUserInfo() {
-        fetch(`${this._baseUrl}/users/me`, {
+    editUserInfo(data) {
+        return fetch(`${this._baseUrl}/users/me`, {
             method: "PATCH",
             headers: {
                 authorization: this._authToken,
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                name: "Marie Skłodowska Curie",
-                about: "Physicist and Chemist"
+                name: data.name,
+                about: data.about
+            })
+        })
+        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .catch((err) => {
+            console.log(err);
+        });
+    }
+
+    addCard({name, link}) {
+        return fetch(`${this._baseUrl}/cards`, {
+            method: "POST",
+            headers: {
+                authorization: this._authToken,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name,
+                link
             })
         })
         .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))

@@ -28,12 +28,14 @@ api.getUserInfo().then(data => {
 
 // *** Forms ***
 const editFormPopup = new PopupWithForm(editModalEl, (data) => {
-    userInfo.setUserInfo(data);
+    api.editUserInfo(data).then(data => {
+        userInfo.setUserInfo(data);
+    })
     editFormPopup.close();
 });
 
-const addFormPopup = new PopupWithForm(addModalEl, (item) => {
-        originalCards.addItem(renderItem(item));
+const addFormPopup = new PopupWithForm(addModalEl, (data) => {
+        api.addCard(data).then(res => console.log(res));
         addFormPopup.close();
 });
 

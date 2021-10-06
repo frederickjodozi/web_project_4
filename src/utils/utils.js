@@ -13,8 +13,8 @@ function handleCardClick() {
     });
 }
 
-function renderItem(item) {
-    const card = new Card({item, handleCardClick}, cardSelector);
+function renderItem(data) {
+    const card = new Card({data, handleCardClick}, cardSelector);
     const cardElement = card.generateCard();
     return cardElement;
 }
