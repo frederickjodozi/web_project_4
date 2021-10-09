@@ -1,7 +1,8 @@
 import "../pages/index.css";
 import {headerLogo, profileName, profileProfession, profileImage, placesList,
        editModalEl, editFormModal, addModalEl, addFormModal, profileEditButton,
-       cardAddButton,  modalInputName, modalInputProfession, formSettings} from "../utils/constants.js";
+       cardAddButton, modalInputName, modalInputProfession, formSettings}
+       from "../utils/constants.js";
 import {renderItem} from "../utils/utils.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/popup-with-form.js";
@@ -39,7 +40,6 @@ api.getCards().then(cardData => {
 });
 
 
-
 // *** Forms ***
 const editFormPopup = new PopupWithForm(editModalEl, (data) => {
     api.editUserInfo(data).then(data => {
@@ -50,7 +50,6 @@ const editFormPopup = new PopupWithForm(editModalEl, (data) => {
 
 const addFormPopup = new PopupWithForm(addModalEl, (data) => {
     api.addCard(data).then(data => {
-        console.log(data);
         originalCards.addItem(renderItem(data));
     })
     addFormPopup.close();

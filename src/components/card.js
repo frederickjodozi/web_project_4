@@ -1,3 +1,7 @@
+import PopupWithForm from "./popup-with-form";
+import deleteModalEl from "../utils/constants.js"
+
+
 export default class Card {
     constructor({data, handleCardClick}, cardSelector){
         this._name = data.name;
@@ -12,8 +16,13 @@ export default class Card {
     }
 
     _handleDeleteCard() {
-       this._element.remove(); 
-       this._element = null;
+        const deleteFormPopup = new PopupWithForm(deleteModalEl, () => {
+            this._element.remove(); 
+            this._element = null;
+            
+            deleteFormPopup.close();
+        });
+        deleteFormPopup.open();
     }
 
     _setEventListeners() {

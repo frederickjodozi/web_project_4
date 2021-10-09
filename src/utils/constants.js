@@ -3,12 +3,15 @@ const editModalEl = "modal_type_edit";
 const editFormModal = document.querySelector(".modal__form_type_edit");
 const addModalEl = "modal_type_add";
 const addFormModal = document.querySelector(".modal__form_type_add");
+const deleteModalEl = "modal_type_delete";
+const deleteFormModal = document.querySelector(".modal__form_type_delete")
 const placesList = document.querySelector(".places__list");
 
 
 // *** Buttons ***
 const profileEditButton = document.querySelector(".profile__edit-button");
 const cardAddButton = document.querySelector(".profile__add-button");
+const cardDeleteButton = document.querySelectorAll(".card__delete-button");
 
 
 // *** DOM elements ***
@@ -41,9 +44,9 @@ const cardSelector = ".card__template";
 // *** Profile ***
 const headerLogo = document.querySelector(".header__logo");
 
-
-export {cardSelector, placesList, profileEditButton, cardAddButton, editModalEl, 
-       editFormModal, addModalEl, addFormModal, profileName, profileProfession, 
-       imagePreviewEl, imagePreviewModalEl, captionPreviewEl, modalInputName,
-       modalInputProfession, formSettings, headerLogo, profileImage}
+export default deleteModalEl;
+export {cardSelector, placesList, profileEditButton, cardAddButton, cardDeleteButton,
+       editModalEl, editFormModal, addModalEl, addFormModal, deleteFormModal,
+       profileName, profileProfession, imagePreviewEl, imagePreviewModalEl, captionPreviewEl,
+       modalInputName, modalInputProfession, formSettings, headerLogo, profileImage}
 
