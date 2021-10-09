@@ -46,7 +46,7 @@ export default class Api {
         });
     }
 
-    addCard({name, link}) {
+    addCard(data) {
         return fetch(`${this._baseUrl}/cards`, {
             method: "POST",
             headers: {
@@ -54,8 +54,8 @@ export default class Api {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                name,
-                link
+                name: data.name,
+                link: data.link
             })
         })
         .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))

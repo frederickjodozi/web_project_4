@@ -26,6 +26,20 @@ api.getUserInfo().then(data => {
     userInfo.setUserInfo(data);
 })
 
+
+// *** Original Cards ***
+api.getCards().then(cardData => {
+    const originalCards = new Section({
+        items: cardData, 
+        renderer: (items) => {
+            originalCards.addItem(renderItem(items));
+        }
+    }, placesList);
+    originalCards.renderItems(renderItem(cardData));
+});
+
+
+
 // *** Forms ***
 const editFormPopup = new PopupWithForm(editModalEl, (data) => {
     api.editUserInfo(data).then(data => {
@@ -35,8 +49,11 @@ const editFormPopup = new PopupWithForm(editModalEl, (data) => {
 });
 
 const addFormPopup = new PopupWithForm(addModalEl, (data) => {
-        api.addCard(data).then(res => console.log(res));
-        addFormPopup.close();
+    api.addCard(data).then(data => {
+        console.log(data);
+        originalCards.addItem(renderItem(data));
+    })
+    addFormPopup.close();
 });
 
 profileEditButton.addEventListener("click", () => {
@@ -62,15 +79,3 @@ const addFormValidator = new FormValidator(formSettings, addFormModal);
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
-
-
-// *** Original Cards ***
-api.getCards().then(cardData => {
-    const originalCards = new Section({
-        items: cardData, 
-        renderer: (cardData) => {
-            originalCards.addItem(renderItem(cardData));
-        }
-    }, placesList);
-    originalCards.renderItems(); 
-});
