@@ -1,4 +1,5 @@
 import PopupWithForm from "./popup-with-form";
+import Api from "./api.js";
 import deleteModalEl from "../utils/constants.js"
 
 
@@ -10,13 +11,18 @@ export default class Card {
         this._handleCardClick = handleCardClick;
         this._cardSelector = cardSelector;
     }
-
+    
     _handleLikeButton() {
         this._cardLikeButton.classList.toggle("card__like-button_active");
     }
 
     _handleDeleteCard() {
         const deleteFormPopup = new PopupWithForm(deleteModalEl, () => {
+            const api = new Api({
+                baseUrl: "https://around.nomoreparties.co/v1/group-13",
+                authToken: "487d57fd-0c04-4caf-a7fc-6016fd47c784"
+            });
+            api.deleteCard
             this._element.remove(); 
             this._element = null;
             

@@ -63,4 +63,22 @@ export default class Api {
             console.log(err);
         });
     }
+
+    deleteCard() {
+        return fetch(`${this._baseUrl}/cards`, {
+            method: "DELETE",
+            headers: {
+                authorization: this._authToken,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: data.name,
+                link: data.link
+            })
+        })
+        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .catch((err) => {
+            console.log(err);
+        });
+    }
 }

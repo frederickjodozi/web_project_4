@@ -1,4 +1,12 @@
 .profile__image {
     max-width: 120px;
     border-radius: 50%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.profile__image:hover {
+    opacity: 80%;
+    background-image: url(../../../images/profile__edit-button-sign.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }

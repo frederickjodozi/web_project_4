@@ -29,14 +29,14 @@ api.getUserInfo().then(data => {
 
 
 // *** Original Cards ***
-api.getCards().then(cardData => {
+api.getCards().then(data => {
     const originalCards = new Section({
-        items: cardData, 
+        items: data, 
         renderer: (items) => {
             originalCards.addItem(renderItem(items));
         }
-    }, placesList);
-    originalCards.renderItems(renderItem(cardData));
+    }, placesList); 
+    originalCards.renderItems(renderItem(data));
 });
 
 
@@ -50,8 +50,8 @@ const editFormPopup = new PopupWithForm(editModalEl, (data) => {
 
 const addFormPopup = new PopupWithForm(addModalEl, (data) => {
     api.addCard(data).then(data => {
-        originalCards.addItem(renderItem(data));
-    })
+       originalCards.addItem(data)
+    });
     addFormPopup.close();
 });
 
