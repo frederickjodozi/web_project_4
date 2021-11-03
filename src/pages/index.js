@@ -1,13 +1,11 @@
 import "../pages/index.css";
 import {headerLogo, profileName, profileProfession, profileImage, placesList,
        editModalEl, editFormModal, addModalEl, addFormModal, profileEditButton,
-       cardAddButton, modalInputName, modalInputProfession, formSettings, cardSelector}
+       cardAddButton, modalInputName, modalInputProfession, formSettings}
        from "../utils/constants.js";
 import {renderItem} from "../utils/utils.js";
-import Card from "../components/card.js";
 import Section from "../components/section.js";
 import PopupWithForm from "../components/popup-with-form.js";
-import PopupWithImage from "../components/popup-with-image.js";
 import UserInfo from "../components/user-info.js";
 import FormValidator from "../components/form-validator.js";
 import Api from "../components/api.js";
@@ -50,21 +48,14 @@ const editFormPopup = new PopupWithForm(editModalEl, (data) => {
 });
 
 const addFormPopup = new PopupWithForm(addModalEl, (data) => {
-    console.log(data)
     api.addCard(data).then(data => {
-        const card = new Card({
-            data,
-            handleCardClick: () => {
-                PopupWithImage.open(data);
-            }
-        }, cardSelector);
+        console.log(data)
         const originalCards = new Section({
             items: data, 
             renderer: (items) => {
                 originalCards.addItem(renderItem(items));
             }
         }, placesList); 
-        originalCards.addItem(card.generateCard());
     });
     addFormPopup.close();
 });
