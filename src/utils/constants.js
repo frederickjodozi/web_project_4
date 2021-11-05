@@ -14,12 +14,6 @@ const cardAddButton = document.querySelector(".profile__add-button");
 const cardDeleteButton = document.querySelectorAll(".card__delete-button");
 
 
-// *** DOM elements ***
-const profileName = ".profile__name";
-const profileProfession = ".profile__profession";
-const profileImage = ".profile__image";
-
-
 // *** Form data ***
 const modalInputName = document.querySelector(".modal__input_content_name");
 const modalInputProfession = document.querySelector(".modal__input_content_profession");
@@ -43,10 +37,15 @@ const cardSelector = ".card__template";
 
 // *** Profile ***
 const headerLogo = document.querySelector(".header__logo");
+const profileName = ".profile__name";
+const profileProfession = ".profile__profession";
+const avatarButton = document.querySelector(".profile__avatar-button");
+const profileAvatar = ".profile__avatar";
 
 export default deleteModalEl;
 export {cardSelector, placesList, profileEditButton, cardAddButton, cardDeleteButton,
        editModalEl, editFormModal, addModalEl, addFormModal, deleteFormModal,
-       profileName, profileProfession, imagePreviewEl, imagePreviewModalEl, captionPreviewEl,
-       modalInputName, modalInputProfession, formSettings, headerLogo, profileImage}
+       profileName, profileProfession, avatarButton, profileAvatar, headerLogo,
+       imagePreviewEl, imagePreviewModalEl, captionPreviewEl, modalInputName,
+       modalInputProfession, formSettings}
 

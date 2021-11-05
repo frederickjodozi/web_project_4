@@ -1,7 +1,7 @@
 import "../pages/index.css";
-import {headerLogo, profileName, profileProfession, profileImage, placesList,
+import {headerLogo, profileName, profileProfession, profileAvatar, placesList,
        editModalEl, editFormModal, addModalEl, addFormModal, profileEditButton,
-       cardAddButton, modalInputName, modalInputProfession, formSettings}
+       cardAddButton, modalInputName, modalInputProfession, formSettings, avatarButton}
        from "../utils/constants.js";
 import {renderItem} from "../utils/utils.js";
 import Section from "../components/section.js";
@@ -10,6 +10,8 @@ import UserInfo from "../components/user-info.js";
 import FormValidator from "../components/form-validator.js";
 import Api from "../components/api.js";
 import headerImage from "../images/header__logo.svg";
+import avatarButtonImage from "../images/profile__edit-button-sign.svg"
+
 
 // *** Api ***
 const api = new Api({
@@ -20,8 +22,9 @@ const api = new Api({
 
 // *** Profile ***
 headerLogo.src = headerImage;
+avatarButton.src = avatarButtonImage;
 
-const userInfo = new UserInfo(profileName, profileProfession, profileImage);
+const userInfo = new UserInfo(profileName, profileProfession, profileAvatar);
 
 api.getUserInfo().then(data => {
     userInfo.setUserInfo(data);
