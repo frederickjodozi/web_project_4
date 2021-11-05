@@ -46,6 +46,23 @@ export default class Api {
         });
     }
 
+    editUserAvatar(data) {
+        return fetch(`${this._baseUrl}/users/me/avatar`, {
+            method: "PATCH", 
+            headers: {
+                authorization: this._authToken,
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({
+                avatar: data.avatar
+            })
+        })
+        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .catch((err) => {
+            console.log(err);
+        });
+    }
+    
     addCard(data) {
         return fetch(`${this._baseUrl}/cards`, {
             method: "POST",
