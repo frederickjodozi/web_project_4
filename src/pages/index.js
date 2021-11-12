@@ -1,7 +1,7 @@
 import "../pages/index.css";
 import {headerLogo, profileName, profileProfession, profileAvatar, placesList,
-       editModalEl, editFormModal, addModalEl, addFormModal, profileEditButton,
-       cardAddButton, modalInputName, modalInputProfession, formSettings, avatarButton}
+       editModalEl, editFormModal, editAvatarEl, addModalEl, addFormModal, profileEditButton,
+       cardAddButton, modalInputName, modalInputProfession, modalInputAvatar, formSettings, avatarButton}
        from "../utils/constants.js";
 import {renderItem} from "../utils/utils.js";
 import Section from "../components/section.js";
@@ -24,6 +24,7 @@ const api = new Api({
 headerLogo.src = headerImage;
 avatarButton.src = avatarButtonImage;
 
+
 const userInfo = new UserInfo(profileName, profileProfession, profileAvatar);
 
 api.getUserInfo().then(data => {
@@ -32,6 +33,7 @@ api.getUserInfo().then(data => {
 
 // *** Original Cards ***
 api.getCards().then(data => {
+    console.log(data)
     const originalCards = new Section({
         items: data, 
         renderer: (items) => {
@@ -50,19 +52,28 @@ const editFormPopup = new PopupWithForm(editModalEl, (data) => {
     editFormPopup.close();
 });
 
+const editAvatarFormPopup = new PopupWithForm(editAvatarEl, (data) => {
+    api.editUserAvatar(data).then(data => {
+        userInfo.setUserInfo(data);
+    })
+    editAvatarFormPopup.close();
+});
+
 const addFormPopup = new PopupWithForm(addModalEl, (data) => {
     api.addCard(data).then(data => {
-        console.log(data)
         const originalCards = new Section({
             items: data, 
             renderer: (items) => {
                 originalCards.addItem(renderItem(items));
             }
         }, placesList); 
+        originalCards.addItem(renderItem(data));
     });
     addFormPopup.close();
 });
 
+
+// *** Buttons ***
 profileEditButton.addEventListener("click", () => {
     editFormPopup.open();
     editFormPopup.setEventListeners();
@@ -70,6 +81,11 @@ profileEditButton.addEventListener("click", () => {
     modalInputProfession.value = userInfo.getUserInfo().profession;
     editFormValidator.removeValidationErrors();
     editFormValidator.disableSubmitButton();
+});
+
+profileAvatar.addEventListener("click", () => {
+    editAvatarFormPopup.open();
+    editAvatarFormPopup.setEventListeners();
 });
 
 cardAddButton.addEventListener("click", () => {

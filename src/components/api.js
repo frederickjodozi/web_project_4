@@ -3,9 +3,9 @@ export default class Api {
         this._baseUrl = baseUrl;
         this._authToken = authToken
     }
-    
-    getCards() {
-        return fetch(`${this._baseUrl}/cards`, {
+
+    getUserInfo() {
+        return fetch(`${this._baseUrl}/users/me`, {
             headers: {
                 authorization: this._authToken
             }
@@ -16,8 +16,8 @@ export default class Api {
         });
     }
     
-    getUserInfo() {
-        return fetch(`${this._baseUrl}/users/me`, {
+    getCards() {
+        return fetch(`${this._baseUrl}/cards`, {
             headers: {
                 authorization: this._authToken
             }

@@ -19,7 +19,6 @@ export default class Card {
 
    _handleDeleteCard() {
         const deleteFormPopup = new PopupWithForm(deleteModalEl, () => {
-            console.log(this._id)
             const api = new Api({
                 baseUrl: "https://around.nomoreparties.co/v1/group-13",
                 authToken: "487d57fd-0c04-4caf-a7fc-6016fd47c784"

@@ -1,10 +1,11 @@
 // *** Wrappers ***
 const editModalEl = "modal_type_edit";
 const editFormModal = document.querySelector(".modal__form_type_edit");
+const editAvatarEl = "modal_type_edit_avatar";
 const addModalEl = "modal_type_add";
 const addFormModal = document.querySelector(".modal__form_type_add");
 const deleteModalEl = "modal_type_delete";
-const deleteFormModal = document.querySelector(".modal__form_type_delete")
+const deleteFormModal = document.querySelector(".modal__form_type_delete");
 const placesList = document.querySelector(".places__list");
 
 
@@ -17,6 +18,7 @@ const cardDeleteButton = document.querySelectorAll(".card__delete-button");
 // *** Form data ***
 const modalInputName = document.querySelector(".modal__input_content_name");
 const modalInputProfession = document.querySelector(".modal__input_content_profession");
+const modalInputAvatar = document.querySelector(".modal__input_content_avatar-link");
 
 const formSettings = {
     _inputSelector: ".modal__input",
@@ -40,12 +42,12 @@ const headerLogo = document.querySelector(".header__logo");
 const profileName = ".profile__name";
 const profileProfession = ".profile__profession";
 const avatarButton = document.querySelector(".profile__avatar-button");
-const profileAvatar = ".profile__avatar";
+const profileAvatar = document.querySelector(".profile__avatar");
 
 export default deleteModalEl;
 export {cardSelector, placesList, profileEditButton, cardAddButton, cardDeleteButton,
-       editModalEl, editFormModal, addModalEl, addFormModal, deleteFormModal,
+       editModalEl, editFormModal, editAvatarEl, addModalEl, addFormModal, deleteFormModal,
        profileName, profileProfession, avatarButton, profileAvatar, headerLogo,
        imagePreviewEl, imagePreviewModalEl, captionPreviewEl, modalInputName,
-       modalInputProfession, formSettings}
+       modalInputProfession, modalInputAvatar, formSettings}
 
