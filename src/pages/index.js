@@ -1,7 +1,7 @@
 import "../pages/index.css";
 import {headerLogo, profileName, profileProfession, profileAvatar, placesList,
        editModalEl, editFormModal, editAvatarEl, addModalEl, addFormModal, profileEditButton,
-       cardAddButton, modalInputName, modalInputProfession, modalInputAvatar, formSettings, avatarButton}
+       cardAddButton, modalInputName, modalInputProfession, formSettings, avatarButton}
        from "../utils/constants.js";
 import {renderItem} from "../utils/utils.js";
 import Section from "../components/section.js";
@@ -33,7 +33,6 @@ api.getUserInfo().then(data => {
 
 // *** Original Cards ***
 api.getCards().then(data => {
-    console.log(data)
     const originalCards = new Section({
         items: data, 
         renderer: (items) => {
