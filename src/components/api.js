@@ -94,4 +94,32 @@ export default class Api {
             console.log(err);
         });
     }
+
+    addLike(cardId) {
+        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+            method: "PUT",
+            headers: {
+                authorization: this._authToken,
+                "Content-Type": "application/json"
+            }
+        })
+        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .catch((err) => {
+            console.log(err);
+        });
+    }
+
+    deleteLike(cardId) {
+        return fetch(`${this._baseUrl}/cards/likes/${cardId}`, {
+            method: "DELETE",
+            headers: {
+                authorization: this._authToken,
+                "Content-Type": "application/json"
+            }
+        })
+        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .catch((err) => {
+            console.log(err);
+        });
+    }
 }

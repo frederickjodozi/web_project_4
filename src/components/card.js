@@ -17,6 +17,19 @@ export default class Card {
 
     _handleLikeButton() {
         this._cardLikeButton.classList.toggle("card__like-button_active");
+
+        const api = new Api({
+            baseUrl: "https://around.nomoreparties.co/v1/group-13",
+            authToken: "487d57fd-0c04-4caf-a7fc-6016fd47c784"
+        });
+
+        if(this._cardLikeButton.classList.contains("card__like-button_active")) {
+            api.addLike(this._id);
+        } else {
+            api.deleteLike(this._id)
+        }
+        
+        this._element.querySelector(".card__like-counter").textContent = this._likes.length;
     }
 
    _handleDeleteCard() {
