@@ -33,7 +33,6 @@ api.getUserInfo().then(data => {
 
 // *** Original Cards ***
 api.getCards().then(data => {
-    console.log(data)
     const originalCards = new Section({
         items: data, 
         renderer: (items) => {

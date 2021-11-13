@@ -7,10 +7,10 @@ export default class Card {
     constructor({data, handleCardClick}, cardSelector) {
         this._name = data.name;
         this._link = data.link;
-
+        
         this._id = data._id;
         this._likes = [data.likes];
-
+        
         this._handleCardClick = handleCardClick;
         this._cardSelector = cardSelector;
     }
@@ -48,6 +48,7 @@ export default class Card {
 
     generateCard() {
         this._element = this._getTemplate();
+
         this._element.querySelector(".card__title").textContent = this._name;
         this._element.querySelector(".card__like-counter").textContent = this._likes.length;
 
