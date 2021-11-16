@@ -3,7 +3,7 @@ import {headerLogo, profileName, profileProfession, profileAvatar, placesList,
        editModalEl, editFormModal, editAvatarEl, addModalEl, addFormModal, profileEditButton,
        cardAddButton, modalInputName, modalInputProfession, formSettings, avatarButton}
        from "../utils/constants.js";
-import {renderItem} from "../utils/utils.js";
+import {renderCard} from "../utils/utils.js";
 import Section from "../components/section.js";
 import PopupWithForm from "../components/popup-with-form.js";
 import UserInfo from "../components/user-info.js";
@@ -38,10 +38,10 @@ api.getCards().then(data => {
     const originalCards = new Section({
         items: data, 
         renderer: (items) => {
-            originalCards.addItem(renderItem(items));
+            originalCards.addItem(renderCard(items));
         }
     }, placesList)
-    originalCards.renderItems(renderItem(data))
+    originalCards.renderItems(renderCard(data))
 })
     .catch(err => console.log(`Error: ${err}`));
 
@@ -70,10 +70,10 @@ const addFormPopup = new PopupWithForm(addModalEl, (data) => {
         const originalCards = new Section({
             items: data, 
             renderer: (items) => {
-                originalCards.addItem(renderItem(items));
+                originalCards.addItem(renderCard(items));
             }
         }, placesList); 
-        originalCards.addItem(renderItem(data));
+        originalCards.addItem(renderCard(data));
         addFormPopup.close();
     })
     .catch(err => console.log(`Error: ${err}`))

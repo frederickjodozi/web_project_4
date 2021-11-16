@@ -13,10 +13,10 @@ function handleCardClick() {
     });
 }
 
-function renderItem(data) {
+function renderCard(data) {
     const card = new Card({data, handleCardClick}, cardSelector);
     const cardElement = card.generateCard();
     return cardElement;
 }
 
-export {handleCardClick, renderItem};
+export {handleCardClick, renderCard};
