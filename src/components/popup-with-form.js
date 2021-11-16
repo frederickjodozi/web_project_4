@@ -17,11 +17,6 @@ export default class PopupWithForm extends Popup {
         });
         return formValues;
     }
-    
-    open() {
-        this._popupForm.querySelector(".modal__save-button").textContent = ("Save");
-        super.open();
-    }
 
     close() {
         this._popupForm.reset();
@@ -38,5 +33,9 @@ export default class PopupWithForm extends Popup {
     setEventListeners() {
         this._popupForm.addEventListener("submit", this._submitHandler);
         super.setEventListeners();
+    }
+
+    resetSaveButton() {
+        this._popupForm.querySelector(".modal__save-button").textContent = ("Save");
     }
 }

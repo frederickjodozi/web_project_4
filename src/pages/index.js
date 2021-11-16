@@ -53,6 +53,7 @@ const editFormPopup = new PopupWithForm(editModalEl, (data) => {
         editFormPopup.close();
     })
     .catch(err => console.log(`Error: ${err}`))
+    .finally(() => editFormPopup.resetSaveButton());
 });
 
 
@@ -62,6 +63,7 @@ const editAvatarFormPopup = new PopupWithForm(editAvatarEl, (data) => {
         editAvatarFormPopup.close();
     })
     .catch(err => console.log(`Error: ${err}`))
+    .finally(() => editAvatarFormPopup.resetSaveButton());
 });
 
 
@@ -77,6 +79,7 @@ const addFormPopup = new PopupWithForm(addModalEl, (data) => {
         addFormPopup.close();
     })
     .catch(err => console.log(`Error: ${err}`))
+    .finally(() => addFormPopup.resetSaveButton());
 })
 
 
