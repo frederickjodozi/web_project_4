@@ -10,7 +10,7 @@ export default class Api {
                 authorization: this._authToken
             }
         })
-        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .then(res => this._getResponseData(res))
         .catch((err) => {
             console.log(err);
         });
@@ -22,7 +22,7 @@ export default class Api {
                 authorization: this._authToken
             }
         })
-        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .then(res => this._getResponseData(res))
         .catch((err) => {
             console.log(err);
         });
@@ -40,7 +40,7 @@ export default class Api {
                 about: data.about
             })
         })
-        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .then(res => this._getResponseData(res))
         .catch((err) => {
             console.log(err);
         });
@@ -57,7 +57,7 @@ export default class Api {
                 avatar: data.avatar
             })
         })
-        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .then(res => this._getResponseData(res))
         .catch((err) => {
             console.log(err);
         });
@@ -75,7 +75,7 @@ export default class Api {
                 link: data.link
             })
         })
-        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .then(res => this._getResponseData(res))
         .catch((err) => {
             console.log(err);
         });
@@ -89,7 +89,7 @@ export default class Api {
                 "Content-Type": "application/json"
             }
         })
-        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .then(res => this._getResponseData(res))
         .catch((err) => {
             console.log(err);
         });
@@ -103,7 +103,7 @@ export default class Api {
                 "Content-Type": "application/json"
             }
         })
-        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .then(res => this._getResponseData(res))
         .catch((err) => {
             console.log(err);
         });
@@ -117,9 +117,16 @@ export default class Api {
                 "Content-Type": "application/json"
             }
         })
-        .then(res => res.ok ? res.json() : Promise.reject(`Err: ${res.status}`))
+        .then(res => this._getResponseData(res))
         .catch((err) => {
             console.log(err);
         });
+    }
+
+    _getResponseData(res) {
+        if(!res.ok) {
+            return Promise.reject(`Err: ${res.status}`);
+        }
+        return res.json()
     }
 }
