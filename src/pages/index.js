@@ -27,9 +27,11 @@ avatarButton.src = avatarButtonImage;
 
 const userInfo = new UserInfo(profileName, profileProfession, profileAvatar);
 
+
 api.getUserInfo().then(data => {
     userInfo.setUserInfo(data);
 })
+
 
 // *** Original Cards ***
 api.getCards().then(data => {
@@ -38,25 +40,30 @@ api.getCards().then(data => {
         renderer: (items) => {
             originalCards.addItem(renderItem(items));
         }
-    }, placesList); 
-    originalCards.renderItems(renderItem(data));
-});
+    }, placesList)
+    originalCards.renderItems(renderItem(data))
+})
+    .catch(err => console.log(`Error: ${err}`));
 
 
 // *** Forms ***
 const editFormPopup = new PopupWithForm(editModalEl, (data) => {
     api.editUserInfo(data).then(data => {
         userInfo.setUserInfo(data);
+        editFormPopup.close();
     })
-    editFormPopup.close();
+    .catch(err => console.log(`Error: ${err}`))
 });
+
 
 const editAvatarFormPopup = new PopupWithForm(editAvatarEl, (data) => {
     api.editUserAvatar(data).then(data => {
         userInfo.setUserInfo(data);
+        editAvatarFormPopup.close();
     })
-    editAvatarFormPopup.close();
+    .catch(err => console.log(`Error: ${err}`))
 });
+
 
 const addFormPopup = new PopupWithForm(addModalEl, (data) => {
     api.addCard(data).then(data => {
@@ -67,9 +74,10 @@ const addFormPopup = new PopupWithForm(addModalEl, (data) => {
             }
         }, placesList); 
         originalCards.addItem(renderItem(data));
-    });
-    addFormPopup.close();
-});
+        addFormPopup.close();
+    })
+    .catch(err => console.log(`Error: ${err}`))
+})
 
 
 // *** Buttons ***
@@ -82,10 +90,12 @@ profileEditButton.addEventListener("click", () => {
     editFormValidator.disableSubmitButton();
 });
 
+
 profileAvatar.addEventListener("click", () => {
     editAvatarFormPopup.open();
     editAvatarFormPopup.setEventListeners();
 });
+
 
 cardAddButton.addEventListener("click", () => {
     addFormPopup.open();
@@ -98,6 +108,7 @@ cardAddButton.addEventListener("click", () => {
 // *** FormValidator *** 
 const editFormValidator = new FormValidator(formSettings, editFormModal);
 const addFormValidator = new FormValidator(formSettings, addFormModal);
+
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();

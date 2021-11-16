@@ -10,10 +10,7 @@ export default class Api {
                 authorization: this._authToken
             }
         })
-        .then(res => this._getResponseData(res))
-        .catch((err) => {
-            console.log(err);
-        });
+        .then(res => this._getResponseData(res));
     }
     
     getCards() {
@@ -22,10 +19,7 @@ export default class Api {
                 authorization: this._authToken
             }
         })
-        .then(res => this._getResponseData(res))
-        .catch((err) => {
-            console.log(err);
-        });
+        .then(res => this._getResponseData(res));
     }
 
     editUserInfo(data) {
@@ -40,10 +34,7 @@ export default class Api {
                 about: data.about
             })
         })
-        .then(res => this._getResponseData(res))
-        .catch((err) => {
-            console.log(err);
-        });
+        .then(res => this._getResponseData(res));
     }
 
     editUserAvatar(data) {
@@ -57,10 +48,7 @@ export default class Api {
                 avatar: data.avatar
             })
         })
-        .then(res => this._getResponseData(res))
-        .catch((err) => {
-            console.log(err);
-        });
+        .then(res => this._getResponseData(res));
     }
     
     addCard(data) {
@@ -75,10 +63,7 @@ export default class Api {
                 link: data.link
             })
         })
-        .then(res => this._getResponseData(res))
-        .catch((err) => {
-            console.log(err);
-        });
+        .then(res => this._getResponseData(res));
     }
 
     deleteCard(cardId) {
@@ -89,10 +74,7 @@ export default class Api {
                 "Content-Type": "application/json"
             }
         })
-        .then(res => this._getResponseData(res))
-        .catch((err) => {
-            console.log(err);
-        });
+        .then(res => this._getResponseData(res));
     }
 
     addLike(cardId) {
@@ -103,10 +85,7 @@ export default class Api {
                 "Content-Type": "application/json"
             }
         })
-        .then(res => this._getResponseData(res))
-        .catch((err) => {
-            console.log(err);
-        });
+        .then(res => this._getResponseData(res));
     }
 
     deleteLike(cardId) {
@@ -117,10 +96,7 @@ export default class Api {
                 "Content-Type": "application/json"
             }
         })
-        .then(res => this._getResponseData(res))
-        .catch((err) => {
-            console.log(err);
-        });
+        .then(res => this._getResponseData(res));
     }
 
     _getResponseData(res) {
