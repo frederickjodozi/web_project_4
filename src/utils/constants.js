@@ -47,10 +47,10 @@ const profileProfession = ".profile__profession";
 const avatarButton = document.querySelector(".profile__avatar-button");
 const profileAvatar = document.querySelector(".profile__avatar");
 
-export default deleteModalEl;
+export default imagePopup
 export {cardSelector, placesList, profileEditButton, cardAddButton, cardDeleteButton,
-       editModalEl, editFormModal, editAvatarEl, addModalEl, addFormModal, deleteFormModal,
-       profileName, profileProfession, avatarButton, profileAvatar, headerLogo, imagePopup,
+       editModalEl, editFormModal, editAvatarEl, addModalEl, addFormModal, deleteModalEl, deleteFormModal,
+       profileName, profileProfession, avatarButton, profileAvatar, headerLogo,
        imagePreviewEl, imagePreviewModalEl, captionPreviewEl, modalInputName,
        modalInputProfession, modalInputAvatar, formSettings}
 

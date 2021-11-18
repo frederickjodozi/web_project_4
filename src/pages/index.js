@@ -1,7 +1,8 @@
 import "../pages/index.css";
 import {headerLogo, profileName, profileProfession, profileAvatar, placesList,
        editModalEl, editFormModal, editAvatarEl, addModalEl, addFormModal, profileEditButton,
-       cardAddButton, modalInputName, modalInputProfession, formSettings, avatarButton}
+       cardAddButton, modalInputName, modalInputProfession, formSettings, avatarButton, imagePopup, 
+       imagePreviewModalEl}
        from "../utils/constants.js";
 import {renderCard} from "../utils/utils.js";
 import Section from "../components/section.js";
@@ -11,7 +12,7 @@ import FormValidator from "../components/form-validator.js";
 import Api from "../components/api.js";
 import headerImage from "../images/header__logo.svg";
 import avatarButtonImage from "../images/profile__edit-button-sign.svg"
-import PopupWithImage from "../components/popup-with-image";
+
 
 
 // *** Api ***
