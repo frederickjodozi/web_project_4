@@ -11,6 +11,7 @@ import FormValidator from "../components/form-validator.js";
 import Api from "../components/api.js";
 import headerImage from "../images/header__logo.svg";
 import avatarButtonImage from "../images/profile__edit-button-sign.svg"
+import PopupWithImage from "../components/popup-with-image";
 
 
 // *** Api ***

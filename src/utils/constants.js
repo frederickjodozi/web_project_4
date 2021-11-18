@@ -1,3 +1,5 @@
+import PopupWithImage from "../components/popup-with-image";
+
 // *** Wrappers ***
 const editModalEl = "modal_type_edit";
 const editFormModal = document.querySelector(".modal__form_type_edit");
@@ -33,6 +35,7 @@ const formSettings = {
 const imagePreviewModalEl = "modal_type_image-preview";
 const imagePreviewEl = document.querySelector(".modal__image");
 const captionPreviewEl = document.querySelector(".modal__caption");
+const imagePopup = new PopupWithImage(imagePreviewModalEl);
 
 // *** Cards ***
 const cardSelector = ".card__template"; 
@@ -47,7 +50,7 @@ const profileAvatar = document.querySelector(".profile__avatar");
 export default deleteModalEl;
 export {cardSelector, placesList, profileEditButton, cardAddButton, cardDeleteButton,
        editModalEl, editFormModal, editAvatarEl, addModalEl, addFormModal, deleteFormModal,
-       profileName, profileProfession, avatarButton, profileAvatar, headerLogo,
+       profileName, profileProfession, avatarButton, profileAvatar, headerLogo, imagePopup,
        imagePreviewEl, imagePreviewModalEl, captionPreviewEl, modalInputName,
        modalInputProfession, modalInputAvatar, formSettings}
 
