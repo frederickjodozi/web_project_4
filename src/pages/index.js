@@ -30,18 +30,19 @@ const userInfo = new UserInfo(profileName, profileProfession, profileAvatar);
 
 api.getUserInfo().then(data => {
     userInfo.setUserInfo(data);
-})
+});
 
 
 // *** Original Cards ***
+const originalCards = new Section({
+    renderer: (items) => {
+        originalCards.addItem(renderCard(items));
+    }
+}, placesList);
+
+
 api.getCards().then(data => {
-    const originalCards = new Section({
-        items: data, 
-        renderer: (items) => {
-            originalCards.addItem(renderCard(items));
-        }
-    }, placesList)
-    originalCards.renderItems(renderCard(data))
+    originalCards.renderItems(data)
 })
     .catch(err => console.log(`Error: ${err}`));
 
@@ -69,18 +70,12 @@ const editAvatarFormPopup = new PopupWithForm(editAvatarEl, (data) => {
 
 const addFormPopup = new PopupWithForm(addModalEl, (data) => {
     api.addCard(data).then(data => {
-        const originalCards = new Section({
-            items: data, 
-            renderer: (items) => {
-                originalCards.addItem(renderCard(items));
-            }
-        }, placesList); 
         originalCards.addItem(renderCard(data));
         addFormPopup.close();
     })
     .catch(err => console.log(`Error: ${err}`))
     .finally(() => addFormPopup.resetSaveButton());
-})
+});
 
 
 // *** Buttons ***
