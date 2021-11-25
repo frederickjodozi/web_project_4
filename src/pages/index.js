@@ -1,18 +1,18 @@
 import "../pages/index.css";
-import {headerLogo, profileName, profileProfession, profileAvatar, placesList,
-       editModalEl, editFormModal, editAvatarEl, addModalEl, addFormModal, profileEditButton,
-       cardAddButton, modalInputName, modalInputProfession, formSettings, avatarButton, imagePopup, 
-       imagePreviewModalEl}
+import {headerLogo, profileName, profileProfession, profileAvatar, profileEditButton,
+       avatarButton, editModalEl, editFormModal, editAvatarEl, modalInputName, modalInputProfession,
+       cardAddButton, addModalEl, addFormModal, cardSelector, placesList, imagePreviewModalEl,
+       imagePreviewEl, captionPreviewEl, formSettings}
        from "../utils/constants.js";
-import {renderCard} from "../utils/utils.js";
+import headerImage from "../images/header__logo.svg";
+import avatarButtonImage from "../images/profile__edit-button-sign.svg";
+import Api from "../components/api.js";
+import UserInfo from "../components/user-info.js";
 import Section from "../components/section.js";
 import PopupWithForm from "../components/popup-with-form.js";
-import UserInfo from "../components/user-info.js";
+import PopupWithImage from "../components/popup-with-image";
 import FormValidator from "../components/form-validator.js";
-import Api from "../components/api.js";
-import headerImage from "../images/header__logo.svg";
-import avatarButtonImage from "../images/profile__edit-button-sign.svg"
-
+import {renderCard} from "../utils/utils.js";
 
 
 // *** Api ***
@@ -36,9 +36,48 @@ api.getUserInfo().then(data => {
 
 
 // *** Original Cards ***
+const imagePopup = new PopupWithImage(imagePreviewModalEl);
+
 const originalCards = new Section({
     renderer: (items) => {
-        originalCards.addItem(renderCard(items));
+        originalCards.addItem(renderCard({
+            data: items, 
+            handleCardClick: function handleCardClick() {
+                this._image.addEventListener("click", (evt) => {
+                    evt.preventDefault;
+                    imagePopup.open(this._link, this._name);
+                    imagePreviewEl.src = this._link;
+                    imagePreviewEl.alt = this._name;
+                    captionPreviewEl.textContent = this._name;
+                })
+            }, 
+            handleLikeButton: function handleLikeButton () {
+                this._cardLikeButton.classList.toggle("card__like-button_active");
+        
+                if(this._cardLikeButton.classList.contains("card__like-button_active")) {
+                    api.addLike(this._id);
+                } else {
+                    api.deleteLike(this._id)
+                }
+                
+                this._element.querySelector(".card__like-counter").textContent = this._likes.length;
+            },
+            handleDeleteCard: function handleDeleteCard () {
+                const deleteFormPopup = new PopupWithForm(deleteModalEl, () => {
+                    const api = new Api({
+                        baseUrl: "https://around.nomoreparties.co/v1/group-13",
+                        authToken: "487d57fd-0c04-4caf-a7fc-6016fd47c784"
+                    });
+                    api.deleteCard(this._id);
+                    this._element.remove(); 
+                    this._element = null;
+                    
+                    deleteFormPopup.close();
+                });
+                deleteFormPopup.open();
+            },
+            cardSelector: cardSelector
+        }));
     }
 }, placesList);
 

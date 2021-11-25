@@ -1,55 +1,20 @@
-import PopupWithForm from "./popup-with-form";
-import Api from "./api.js";
-import deleteModalEl from "../utils/constants.js"
-
-
 export default class Card {
-    constructor({data, handleCardClick}, cardSelector) {
+    constructor({data, handleCardClick, handleLikeButton, handleDeleteCard, cardSelector}) {
         this._name = data.name;
         this._link = data.link;
-        
         this._id = data._id;
         this._likes = [data.likes];
         
         this._handleCardClick = handleCardClick;
+        this._handleLikeButton = handleLikeButton;
+        this._handleDeleteCard = handleDeleteCard;
         this._cardSelector = cardSelector;
-    }
-
-    _handleLikeButton() {
-        this._cardLikeButton.classList.toggle("card__like-button_active");
-
-        const api = new Api({
-            baseUrl: "https://around.nomoreparties.co/v1/group-13",
-            authToken: "487d57fd-0c04-4caf-a7fc-6016fd47c784"
-        });
-
-        if(this._cardLikeButton.classList.contains("card__like-button_active")) {
-            api.addLike(this._id);
-        } else {
-            api.deleteLike(this._id)
-        }
-        
-        this._element.querySelector(".card__like-counter").textContent = this._likes.length;
-    }
-
-   _handleDeleteCard() {
-        const deleteFormPopup = new PopupWithForm(deleteModalEl, () => {
-            const api = new Api({
-                baseUrl: "https://around.nomoreparties.co/v1/group-13",
-                authToken: "487d57fd-0c04-4caf-a7fc-6016fd47c784"
-            });
-            api.deleteCard(this._id);
-            this._element.remove(); 
-            this._element = null;
-            
-            deleteFormPopup.close();
-        });
-        deleteFormPopup.open();
     }
 
     _setEventListeners() {
         this._cardLikeButton = this._element.querySelector(".card__like-button");
         this._cardDeleteButton = this._element.querySelector(".card__delete-button");
+        ///
 
         this._cardLikeButton.addEventListener("click", () => this._handleLikeButton());
         this._cardDeleteButton.addEventListener("click", () => this._handleDeleteCard());
@@ -65,7 +30,7 @@ export default class Card {
         this._element.querySelector(".card__title").textContent = this._name;
         this._element.querySelector(".card__like-counter").textContent = this._likes.length;
 
-        this._image = this._element.querySelector(".card__image")
+        this._image = this._element.querySelector(".card__image");
         this._image.style.backgroundImage = `url(${this._link})`;
 
         this._setEventListeners();
