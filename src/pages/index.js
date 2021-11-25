@@ -39,10 +39,9 @@ api.getUserInfo().then(data => {
 const imagePopup = new PopupWithImage(imageCloseupPreviewEl);
 
 const deleteFormPopup = new PopupWithForm(deleteModalEl, () => {
-    api.deleteCard(this._id);
-    this._element.remove(); 
-    this._element = null;
-    deleteFormPopup.close();
+    api.deleteCard(this._id)
+        .then(this._element.remove())
+        .then(deleteFormPopup.close())
 });
 
 const originalCards = new Section({
