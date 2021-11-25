@@ -5,7 +5,7 @@ const editAvatarEl = "modal_type_edit-avatar";
 const addModalEl = "modal_type_add";
 const addFormModal = document.querySelector(".modal__form_type_add");
 const deleteModalEl = "modal_type_delete";
-const deleteFormModal = document.querySelector(".modal__form_type_delete");
+
 const placesList = document.querySelector(".places__list");
 
 
@@ -30,7 +30,7 @@ const formSettings = {
 
 
 // *** Image Preview Modal ***
-const imagePreviewModalEl = "modal_type_image-preview";
+const imageCloseupPreviewEl = "modal_type_image-preview";
 const imagePreviewEl = document.querySelector(".modal__image");
 const captionPreviewEl = document.querySelector(".modal__caption");
 
@@ -48,6 +48,6 @@ const profileAvatar = document.querySelector(".profile__avatar");
 
 export {headerLogo, profileName, profileProfession, profileAvatar, profileEditButton, avatarButton, 
        editModalEl, editFormModal, editAvatarEl, modalInputName, modalInputProfession, modalInputAvatar,
-       cardAddButton, addModalEl, addFormModal, cardSelector, placesList, imagePreviewModalEl, 
-       imagePreviewEl, captionPreviewEl, cardDeleteButton, deleteModalEl, deleteFormModal, formSettings}
+       cardAddButton, addModalEl, addFormModal, cardSelector, placesList, imageCloseupPreviewEl,
+       imagePreviewEl, captionPreviewEl, cardDeleteButton, deleteModalEl, formSettings}
 

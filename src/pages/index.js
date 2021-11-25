@@ -1,8 +1,8 @@
 import "../pages/index.css";
 import {headerLogo, profileName, profileProfession, profileAvatar, profileEditButton,
        avatarButton, editModalEl, editFormModal, editAvatarEl, modalInputName, modalInputProfession,
-       cardAddButton, addModalEl, addFormModal, cardSelector, placesList, imagePreviewModalEl,
-       imagePreviewEl, captionPreviewEl, formSettings}
+       cardAddButton, addModalEl, addFormModal, cardSelector, placesList, imageCloseupPreviewEl,
+       imagePreviewEl, captionPreviewEl, deleteModalEl, formSettings}
        from "../utils/constants.js";
 import headerImage from "../images/header__logo.svg";
 import avatarButtonImage from "../images/profile__edit-button-sign.svg";
@@ -36,7 +36,14 @@ api.getUserInfo().then(data => {
 
 
 // *** Original Cards ***
-const imagePopup = new PopupWithImage(imagePreviewModalEl);
+const imagePopup = new PopupWithImage(imageCloseupPreviewEl);
+
+const deleteFormPopup = new PopupWithForm(deleteModalEl, () => {
+    api.deleteCard(this._id);
+    this._element.remove(); 
+    this._element = null;
+    deleteFormPopup.close();
+});
 
 const originalCards = new Section({
     renderer: (items) => {
@@ -63,17 +70,6 @@ const originalCards = new Section({
                 this._element.querySelector(".card__like-counter").textContent = this._likes.length;
             },
             handleDeleteCard: function handleDeleteCard () {
-                const deleteFormPopup = new PopupWithForm(deleteModalEl, () => {
-                    const api = new Api({
-                        baseUrl: "https://around.nomoreparties.co/v1/group-13",
-                        authToken: "487d57fd-0c04-4caf-a7fc-6016fd47c784"
-                    });
-                    api.deleteCard(this._id);
-                    this._element.remove(); 
-                    this._element = null;
-                    
-                    deleteFormPopup.close();
-                });
                 deleteFormPopup.open();
             },
             cardSelector: cardSelector
