@@ -41,8 +41,8 @@ const imagePopup = new PopupWithImage(imageCloseupPreviewEl);
 
 const deleteFormPopup = new PopupWithForm(deleteModalEl, () => {
     api.deleteCard()
-    .then(this._element.remove())
-    .then(deleteFormPopup.close())
+    .then(() => this._element.remove())
+    .then(() => deleteFormPopup.close())
 });
 
 
