@@ -28,6 +28,7 @@ avatarButton.src = avatarButtonImage;
 
 
 const userInfo = new UserInfo(profileName, profileProfession, profileAvatar);
+const getUserInfo = userInfo.getUserInfo();
 
 
 api.getUserInfo().then(data => {
@@ -119,8 +120,8 @@ const addFormPopup = new PopupWithForm(addModalEl, (data) => {
 profileEditButton.addEventListener("click", () => {
     editFormPopup.open();
     editFormPopup.setEventListeners();
-    modalInputName.value = userInfo.getUserInfo().name;
-    modalInputProfession.value = userInfo.getUserInfo().profession;
+    modalInputName.value = getUserInfo.name;
+    modalInputProfession.value = getUserInfo.profession;
     editFormValidator.removeValidationErrors();
     editFormValidator.disableSubmitButton();
 });
