@@ -14,10 +14,14 @@ export default class Card {
     _setEventListeners() {
         this._cardLikeButton = this._element.querySelector(".card__like-button");
         this._cardDeleteButton = this._element.querySelector(".card__delete-button");
-        ///
 
         this._cardLikeButton.addEventListener("click", () => this._handleLikeButton());
         this._cardDeleteButton.addEventListener("click", () => this._handleDeleteCard());
+    }
+
+    renderLikes() {
+        this._cardLikesCounter = this._element.querySelector(".card__like-counter");
+        this._cardLikesCounter.textContent = this._likes.length;
     }
 
     _getTemplate() {
@@ -26,15 +30,14 @@ export default class Card {
 
     generateCard() {
         this._element = this._getTemplate();
-
+        
         this._element.querySelector(".card__title").textContent = this._name;
-        this._element.querySelector(".card__like-counter").textContent = this._likes.length;
-
         this._image = this._element.querySelector(".card__image");
         this._image.style.backgroundImage = `url(${this._link})`;
 
         this._setEventListeners();
         this._handleCardClick();
+        this.renderLikes();
 
         return this._element;
     }

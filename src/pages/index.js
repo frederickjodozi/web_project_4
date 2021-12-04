@@ -38,11 +38,13 @@ api.getUserInfo().then(data => {
 // *** Original Cards ***
 const imagePopup = new PopupWithImage(imageCloseupPreviewEl);
 
+
 const deleteFormPopup = new PopupWithForm(deleteModalEl, () => {
-    api.deleteCard(this._id)
-        .then(this._element.remove())
-        .then(deleteFormPopup.close())
+    api.deleteCard()
+    .then(this._element.remove())
+    .then(deleteFormPopup.close())
 });
+
 
 const originalCards = new Section({
     renderer: (items) => {
@@ -57,18 +59,17 @@ const originalCards = new Section({
                     captionPreviewEl.textContent = this._name;
                 })
             }, 
-            handleLikeButton: function handleLikeButton () {
+            handleLikeButton: function handleLikeButton() {
                 this._cardLikeButton.classList.toggle("card__like-button_active");
-        
+                
                 if(this._cardLikeButton.classList.contains("card__like-button_active")) {
                     api.addLike(this._id);
                 } else {
-                    api.deleteLike(this._id)
+                    api.deleteLike(this._id);
                 }
-                
-                this._element.querySelector(".card__like-counter").textContent = this._likes.length;
+                this.renderLikes();
             },
-            handleDeleteCard: function handleDeleteCard () {
+            handleDeleteCard: function handleDeleteCard() {
                 deleteFormPopup.open();
             },
             cardSelector: cardSelector
