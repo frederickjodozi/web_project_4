@@ -63,11 +63,14 @@ const originalCards = new Section({
                 this._cardLikeButton.classList.toggle("card__like-button_active");
                 
                 if(this._cardLikeButton.classList.contains("card__like-button_active")) {
-                    api.addLike(this._id);
+                    api.addLike(this._id)
+                    .then((data) => this.updateLikes(data))
+                    .catch(err => console.log(`Error: ${err}`))
                 } else {
-                    api.deleteLike(this._id);
+                    api.deleteLike(this._id)
+                    .then((data) => this.updateLikes(data))
+                    .catch(err => console.log(`Error: ${err}`))
                 }
-                this.renderLikes();
             },
             handleDeleteCard: function handleDeleteCard() {
                 deleteFormPopup.open();

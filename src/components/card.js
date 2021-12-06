@@ -20,9 +20,14 @@ export default class Card {
         this._cardDeleteButton.addEventListener("click", () => this._handleDeleteCard());
     }
 
-    renderLikes() {
+    _renderLikes() {
         this._cardLikesCounter = this._element.querySelector(".card__like-counter");
         this._cardLikesCounter.textContent = this._likes.length;
+    }
+
+    updateLikes(data) {
+        this._cardLikesCounter = this._element.querySelector(".card__like-counter");
+        this._cardLikesCounter.textContent = data.likes.length;
     }
 
     _getTemplate() {
@@ -38,7 +43,7 @@ export default class Card {
 
         this._setEventListeners();
         this._handleCardClick();
-        this.renderLikes();
+        this._renderLikes();
 
         return this._element;
     }
