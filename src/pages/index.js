@@ -33,7 +33,8 @@ const getUserInfo = userInfo.getUserInfo();
 
 api.getUserInfo().then(data => {
     userInfo.setUserInfo(data);
-});
+})
+.catch(err => console.log(`Error: ${err}`));
 
 
 // *** Original Cards ***
@@ -41,11 +42,13 @@ const imagePopup = new PopupWithImage(imageCloseupPreviewEl);
 
 
 const deleteFormPopup = new PopupWithForm(deleteModalEl, () => {
-    api.deleteCard()
-    .then(() => this._element.remove())
-    .then(() => deleteFormPopup.close())
+    api.deleteCard().then(() => {
+        this._element.remove();
+        deleteFormPopup.close();
+    })
+    .catch(err => console.log(`Error: ${err}`))
+    .finally(() => deleteFormPopup.resetSaveButton());
 });
-
 
 const originalCards = new Section({
     renderer: (items) => {
@@ -82,7 +85,7 @@ const originalCards = new Section({
 api.getCards().then(data => {
     originalCards.renderItems(data)
 })
-    .catch(err => console.log(`Error: ${err}`));
+.catch(err => console.log(`Error: ${err}`));
 
 
 // *** Forms ***
