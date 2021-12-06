@@ -54,13 +54,10 @@ const originalCards = new Section({
     renderer: (item) => renderCard({
             data: item, 
             handleCardClick: function handleCardClick() {
-                this._image.addEventListener("click", (evt) => {
-                    evt.preventDefault;
-                    imagePopup.open(this._link, this._name);
-                    imagePreviewEl.src = this._link;
-                    imagePreviewEl.alt = this._name;
-                    captionPreviewEl.textContent = this._name;
-                })
+                imagePopup.open(this._link, this._name);
+                imagePreviewEl.src = this._link;
+                imagePreviewEl.alt = this._name;
+                captionPreviewEl.textContent = this._name;
             }, 
             handleLikeButton: function handleLikeButton() {
                 this._cardLikeButton.classList.toggle("card__like-button_active");
