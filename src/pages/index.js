@@ -51,9 +51,8 @@ const deleteFormPopup = new PopupWithForm(deleteModalEl, () => {
 });
 
 const originalCards = new Section({
-    renderer: (items) => {
-        originalCards.addItem(renderCard({
-            data: items, 
+    renderer: (item) => renderCard({
+            data: item, 
             handleCardClick: function handleCardClick() {
                 this._image.addEventListener("click", (evt) => {
                     evt.preventDefault;
@@ -77,8 +76,7 @@ const originalCards = new Section({
                 deleteFormPopup.open();
             },
             cardSelector: cardSelector
-        }));
-    }
+        })
 }, placesList);
 
 
@@ -111,7 +109,7 @@ const editAvatarFormPopup = new PopupWithForm(editAvatarEl, (data) => {
 
 const addFormPopup = new PopupWithForm(addModalEl, (data) => {
     api.addCard(data).then(data => {
-        originalCards.addItem(renderCard(data));
+        originalCards.addItem(data);
         addFormPopup.close();
     })
     .catch(err => console.log(`Error: ${err}`))
