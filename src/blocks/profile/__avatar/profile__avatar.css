@@ -10,9 +10,14 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    cursor: pointer;
     transition: opacity 0.3s ease-in-out;
 }
 
 .profile__avatar:hover {
     opacity: 80%;
+}
+
+.profile__avatar:hover > .profile__avatar-button {
+    opacity: 100;
 }

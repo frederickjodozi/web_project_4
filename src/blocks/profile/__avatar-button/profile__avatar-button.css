@@ -4,8 +4,3 @@
     opacity: 0;
     transition: opacity 0.5s;
 }
-
-.profile__avatar-button:hover {
-    opacity: 100;
-    
-}
