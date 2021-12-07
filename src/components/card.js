@@ -42,9 +42,9 @@ export default class Card {
         this._image = this._element.querySelector(".card__image");
         this._image.style.backgroundImage = `url(${this._link})`;
 
+        this._setEventListeners();
         this._renderDeleteButton();
         this._renderLikes();
-        this._setEventListeners();
 
         return this._element;
     }

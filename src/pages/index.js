@@ -75,13 +75,12 @@ const originalCards = new Section({
                 }
             },
             renderDeleteButton: function renderDeleteButton() {
-                console.log(data.name);
-                if(data.name = "Fred Jodozi") {
-                    this.cardDeleteButton.classList.add("");
-                    this.cardDeleteButton.disabled = false;
+                if(item.owner.name === ("Fred Jodozi")) {
+                    this._cardDeleteButton.classList.add("card__delete-button_active");
+                    this._cardDeleteButton.disabled = false;
                 } else {
-                    this.cardDeleteButton.classList.remove("");
-                    this.cardDeleteButton.disabled = true;
+                    this._cardDeleteButton.classList.remove("card__delete-button_active");
+                    this._cardDeleteButton.disabled = true;
                 }
             },
             handleDeleteCard: function handleDeleteCard() {
