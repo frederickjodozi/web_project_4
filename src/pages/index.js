@@ -1,3 +1,4 @@
+import 'regenerator-runtime/runtime';
 import "../pages/index.css";
 import {headerLogo, profileName, profileProfession, profileAvatar, profileEditButton,
        avatarButton, editModalEl, editFormModal, editAvatarEl, modalInputName, modalInputProfession,
@@ -13,6 +14,7 @@ import PopupWithForm from "../components/popup-with-form.js";
 import PopupWithImage from "../components/popup-with-image";
 import FormValidator from "../components/form-validator.js";
 import {renderCard} from "../utils/utils.js";
+import { data } from "autoprefixer";
 
 
 // *** Api ***
@@ -70,6 +72,16 @@ const originalCards = new Section({
                     api.deleteLike(this._id)
                     .then((data) => this.updateLikes(data))
                     .catch(err => console.log(`Error: ${err}`))
+                }
+            },
+            renderDeleteButton: function renderDeleteButton() {
+                console.log(data.name);
+                if(data.name = "Fred Jodozi") {
+                    this.cardDeleteButton.classList.add("");
+                    this.cardDeleteButton.disabled = false;
+                } else {
+                    this.cardDeleteButton.classList.remove("");
+                    this.cardDeleteButton.disabled = true;
                 }
             },
             handleDeleteCard: function handleDeleteCard() {
