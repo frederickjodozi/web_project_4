@@ -42,7 +42,6 @@ export default class Card {
         this._image.style.backgroundImage = `url(${this._link})`;
 
         this._setEventListeners();
-        this._handleCardClick();
         this._renderLikes();
 
         return this._element;
