@@ -11,7 +11,7 @@ export default class PopupWithVerification extends PopupWithForm {
         super.open();
     }
 
-    _submitHandler = (evt) => {
+    _handleSubmit = (evt) => {
         evt.preventDefault();
         this._popupForm.querySelector(".modal__save-button").textContent = ("Saving...");
         this._handleFormSubmit(this.cardId, this.cardElement); 
