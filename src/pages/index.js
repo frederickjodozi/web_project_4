@@ -44,10 +44,9 @@ const imagePopup = new PopupWithImage(imageCloseupPreviewEl);
 
 
 const deleteFormPopup = new PopupWithVerification(deleteModalEl, (cardId, cardElement) => {
-    api.deleteCard(cardId).then(() => {
-        cardElement.remove();
-        deleteFormPopup.close();
-    })
+    api.deleteCard(cardId)
+    .then(() => cardElement.remove())
+    .then(() => deleteFormPopup.close())
     .catch(err => console.log(`Error: ${err}`))
     .finally(() => deleteFormPopup.resetSaveButton());
 });
