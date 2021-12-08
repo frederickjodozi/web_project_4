@@ -10,11 +10,11 @@ import avatarButtonImage from "../images/profile__edit-button-sign.svg";
 import Api from "../components/api.js";
 import UserInfo from "../components/user-info.js";
 import Section from "../components/section.js";
-import PopupWithForm from "../components/popup-with-form.js";
 import PopupWithImage from "../components/popup-with-image";
+import PopupWithForm from "../components/popup-with-form.js";
+import PopupWithVerification from '../components/popup-with-verification';
 import FormValidator from "../components/form-validator.js";
 import {renderCard} from "../utils/utils.js";
-import { data } from "autoprefixer";
 
 
 // *** Api ***
@@ -43,14 +43,15 @@ api.getUserInfo().then(data => {
 const imagePopup = new PopupWithImage(imageCloseupPreviewEl);
 
 
-const deleteFormPopup = new PopupWithForm(deleteModalEl, () => {
-    api.deleteCard().then(() => {
-        this._element.remove();
+const deleteFormPopup = new PopupWithVerification(deleteModalEl, (cardId, cardElement) => {
+    api.deleteCard(cardId).then(() => {
+        cardElement.remove();
         deleteFormPopup.close();
     })
     .catch(err => console.log(`Error: ${err}`))
     .finally(() => deleteFormPopup.resetSaveButton());
 });
+
 
 const originalCards = new Section({
     renderer: (item) => renderCard({
@@ -84,7 +85,7 @@ const originalCards = new Section({
                 }
             },
             handleDeleteCard: function handleDeleteCard() {
-                deleteFormPopup.open();
+                deleteFormPopup.open(item._id, this._element);
             },
             cardSelector: cardSelector
         })
