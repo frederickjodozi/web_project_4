@@ -3,7 +3,7 @@ export default class FormValidator {
         this._inputSelector = settings._inputSelector;
         this._submitButtonSelector = settings._submitButtonSelector;
         this._inputErrorClass = settings._inputErrorClass;
-        this._errorClass = settings._errorClass;
+        this._activeInputErrorClass = settings._activeInputErrorClass;
         this._inactiveButtonClass = settings._inactiveButtonClass;
 
         this._form = formElement;
@@ -12,13 +12,13 @@ export default class FormValidator {
     _hideInputError(inputEl) {
         const errorSpan = this._form.querySelector("#" + inputEl.id + "-error");
         errorSpan.textContent = "";
-        inputEl.classList.remove(this._errorClass);
+        inputEl.classList.remove(this._activeInputErrorClass);
     }
 
     _showInputError = (inputEl) => {
         const errorSpan = this._form.querySelector("#" + inputEl.id + "-error");
         errorSpan.textContent = inputEl.validationMessage;
-        inputEl.classList.add(this._errorClass);
+        inputEl.classList.add(this._activeInputErrorClass);
     }
 
     _hasValidInputs(){
@@ -65,10 +65,10 @@ export default class FormValidator {
     removeValidationErrors() {
         const inputElements = [...document.querySelectorAll(this._inputSelector)];
         inputElements.forEach((inputEl) => {
-            inputEl.classList.remove(this._errorClass); 
+            inputEl.classList.remove(this._activeInputErrorClass); 
         });
 
-        const errorElements = [...document.querySelectorAll(".modal__input-error")];
+        const errorElements = [...document.querySelectorAll(this._inputErrorClass)];
         errorElements.forEach((errorEl) => {
             errorEl.textContent = "";
         });

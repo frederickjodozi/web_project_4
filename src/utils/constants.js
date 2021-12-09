@@ -25,8 +25,8 @@ const modalInputAvatar = document.querySelector(".modal__input_content_avatar-li
 const formSettings = {
     _inputSelector: ".modal__input",
     _submitButtonSelector: ".modal__save-button",
-    _inputErrorClass: "modal__input-error",
-    _errorClass: "modal__input-error_active",
+    _inputErrorClass: ".modal__input-error",
+    _activeInputErrorClass: "modal__input-error_active",
     _inactiveButtonClass: "modal__save-button_inactive"
 }
 
