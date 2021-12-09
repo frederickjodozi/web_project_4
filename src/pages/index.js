@@ -3,7 +3,8 @@ import "../pages/index.css";
 import {headerLogo, profileName, profileProfession, profileAvatar, profileEditButton,
        avatarButton, editModalEl, editFormModal, editAvatarEl, editAvatarFormModal, modalInputName,
        modalInputProfession, cardAddButton, addModalEl, addFormModal, cardSelector, placesList,
-       imageCloseupPreviewEl, imagePreviewEl, captionPreviewEl, deleteModalEl, formSettings}
+       imageCloseupPreviewEl, imagePreviewEl, captionPreviewEl, deleteModalEl, deleteFormModal, 
+       formSettings}
        from "../utils/constants.js";
 import headerImage from "../images/header__logo.svg";
 import avatarButtonImage from "../images/profile__edit-button-sign.svg";
@@ -83,7 +84,7 @@ const originalCards = new Section({
                     this._cardDeleteButton.disabled = true;
                 }
             },
-            handleDeleteCard: function handleDeleteCard() {
+            handleDeleteButton: function handleDeleteButton() {
                 deleteFormPopup.open(item._id, this._element);
             },
             cardSelector: cardSelector
@@ -159,8 +160,10 @@ cardAddButton.addEventListener("click", () => {
 const editFormValidator = new FormValidator(formSettings, editFormModal);
 const addFormValidator = new FormValidator(formSettings, addFormModal);
 const editAvatarFormValidator = new FormValidator(formSettings, editAvatarFormModal);
+const deleteFormValidator = new FormValidator(formSettings, deleteFormModal);
 
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 editAvatarFormValidator.enableValidation();
+deleteFormValidator.enableValidation();
