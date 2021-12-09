@@ -108,7 +108,7 @@ const editFormPopup = new PopupWithForm(editModalEl, (data) => {
 
 const editAvatarFormPopup = new PopupWithForm(editAvatarEl, (data) => {
     api.editUserAvatar(data).then(data => {
-        userInfo.setUserInfo(data);
+        userInfo.setUserAvatar(data);
         editAvatarFormPopup.close();
     })
     .catch(err => console.log(`Error: ${err}`))
