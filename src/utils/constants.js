@@ -2,6 +2,7 @@
 const editModalEl = "modal_type_edit";
 const editFormModal = document.querySelector(".modal__form_type_edit");
 const editAvatarEl = "modal_type_edit-avatar";
+const editAvatarFormModal = document.querySelector(".modal__form_type_edit-avatar");
 const addModalEl = "modal_type_add";
 const addFormModal = document.querySelector(".modal__form_type_add");
 const deleteModalEl = "modal_type_delete";
@@ -47,7 +48,7 @@ const profileAvatar = document.querySelector(".profile__avatar");
 
 
 export {headerLogo, profileName, profileProfession, profileAvatar, profileEditButton, avatarButton, 
-       editModalEl, editFormModal, editAvatarEl, modalInputName, modalInputProfession, modalInputAvatar,
+       editModalEl, editFormModal, editAvatarEl, editAvatarFormModal, modalInputName, modalInputProfession, modalInputAvatar,
        cardAddButton, addModalEl, addFormModal, cardSelector, placesList, imageCloseupPreviewEl,
        imagePreviewEl, captionPreviewEl, cardDeleteButton, deleteModalEl, formSettings}
 

@@ -1,9 +1,9 @@
 import 'regenerator-runtime/runtime';
 import "../pages/index.css";
 import {headerLogo, profileName, profileProfession, profileAvatar, profileEditButton,
-       avatarButton, editModalEl, editFormModal, editAvatarEl, modalInputName, modalInputProfession,
-       cardAddButton, addModalEl, addFormModal, cardSelector, placesList, imageCloseupPreviewEl,
-       imagePreviewEl, captionPreviewEl, deleteModalEl, formSettings}
+       avatarButton, editModalEl, editFormModal, editAvatarEl, editAvatarFormModal, modalInputName,
+       modalInputProfession, cardAddButton, addModalEl, addFormModal, cardSelector, placesList,
+       imageCloseupPreviewEl, imagePreviewEl, captionPreviewEl, deleteModalEl, formSettings}
        from "../utils/constants.js";
 import headerImage from "../images/header__logo.svg";
 import avatarButtonImage from "../images/profile__edit-button-sign.svg";
@@ -142,6 +142,8 @@ profileEditButton.addEventListener("click", () => {
 profileAvatar.addEventListener("click", () => {
     editAvatarFormPopup.open();
     editAvatarFormPopup.setEventListeners();
+    editAvatarFormValidator.removeValidationErrors();
+    editAvatarFormValidator.disableSubmitButton();
 });
 
 
@@ -156,7 +158,9 @@ cardAddButton.addEventListener("click", () => {
 // *** FormValidator *** 
 const editFormValidator = new FormValidator(formSettings, editFormModal);
 const addFormValidator = new FormValidator(formSettings, addFormModal);
+const editAvatarFormValidator = new FormValidator(formSettings, editAvatarFormModal);
 
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+editAvatarFormValidator.enableValidation();
