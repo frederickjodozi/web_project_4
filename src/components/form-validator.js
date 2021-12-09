@@ -9,18 +9,6 @@ export default class FormValidator {
         this._form = formElement;
     }
 
-    _hideInputError(inputEl) {
-        const errorSpan = this._form.querySelector("#" + inputEl.id + "-error");
-        errorSpan.textContent = "";
-        inputEl.classList.remove(this._activeInputErrorClass);
-    }
-
-    _showInputError = (inputEl) => {
-        const errorSpan = this._form.querySelector("#" + inputEl.id + "-error");
-        errorSpan.textContent = inputEl.validationMessage;
-        inputEl.classList.add(this._activeInputErrorClass);
-    }
-
     _hasValidInputs(){
         if(this._inputElements.every((inputEl) => inputEl.validity.valid)) {
             return true;
@@ -37,6 +25,18 @@ export default class FormValidator {
         };
     }
 
+    _hideInputError(inputEl) {
+        const errorSpan = this._form.querySelector("#" + inputEl.id + "-error");
+        errorSpan.textContent = "";
+        inputEl.classList.remove(this._activeInputErrorClass);
+    }
+
+    _showInputError = (inputEl) => {
+        const errorSpan = this._form.querySelector("#" + inputEl.id + "-error");
+        errorSpan.textContent = inputEl.validationMessage;
+        inputEl.classList.add(this._activeInputErrorClass);
+    }
+    
     _checkInputValidity(inputEl) {
         if(inputEl.validity.valid) {
             this._hideInputError(inputEl)
@@ -63,19 +63,19 @@ export default class FormValidator {
     }
 
     removeValidationErrors() {
-        const inputElements = [...document.querySelectorAll(this._inputSelector)];
+        const inputElements = [...this._form.querySelectorAll(this._inputSelector)];
         inputElements.forEach((inputEl) => {
             inputEl.classList.remove(this._activeInputErrorClass); 
         });
 
-        const errorElements = [...document.querySelectorAll(this._inputErrorClass)];
+        const errorElements = [...this._form.querySelectorAll(this._inputErrorClass)];
         errorElements.forEach((errorEl) => {
             errorEl.textContent = "";
         });
     }
 
     disableSubmitButton() {
-        const submitButtonElements = [...document.querySelectorAll(this._submitButtonSelector)];
+        const submitButtonElements = [...this._form.querySelectorAll(this._submitButtonSelector)];
         submitButtonElements.forEach((submitButtonEl) => {
             submitButtonEl.disabled = true;
             submitButtonEl.classList.add(this._inactiveButtonClass);
