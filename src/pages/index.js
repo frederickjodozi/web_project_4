@@ -60,9 +60,7 @@ const originalCards = new Section({
                 captionPreviewEl.textContent = this._name;
             }, 
             handleLikeButton: function handleLikeButton() {
-                this._cardLikeButton.classList.toggle("card__like-button_active");
-                
-                if(this._cardLikeButton.classList.contains("card__like-button_active")) {
+                if(!this._cardLikeButton.classList.contains("card__like-button_active")) {
                     api.addLike(this._id)
                     .then((data) => this.updateLikes(data))
                     .catch(err => console.log(`Error: ${err}`))
