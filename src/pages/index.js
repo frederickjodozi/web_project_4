@@ -32,6 +32,7 @@ avatarButton.src = avatarButtonImage;
 const userInfo = new UserInfo(profileName, profileProfession, profileAvatar);
 
 api.getUserInfo().then(data => {
+    console.log(data)
     userInfo.setUserInfo(data);
 })
 .catch(err => console.log(`Error: ${err}`));

@@ -12,10 +12,15 @@ export default class UserInfo {
         }
     }
 
+    getId() {
+        return this._id;
+    }
+
     setUserInfo(data) {
         this._profileName.textContent = data.name,
         this._profileProfession.textContent = data.about,
-        this._profileAvatar.style.backgroundImage = `url(${data.avatar})`
+        this._profileAvatar.style.backgroundImage = `url(${data.avatar})`,
+        this._id = data._id;
     }
 
     setUserAvatar(data) {
