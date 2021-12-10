@@ -53,6 +53,7 @@ const deleteFormPopup = new PopupWithVerification(deleteModalEl, (cardId, cardEl
 const originalCards = new Section({
     renderer: (item) => renderCard({
             data: item, 
+            currentUserId: userInfo.getId(),
             handleCardClick: function handleCardClick() {
                 imagePopup.open(this._link, this._name);
                 imagePreviewEl.src = this._link;
@@ -68,15 +69,6 @@ const originalCards = new Section({
                     api.deleteLike(this._id)
                     .then((data) => this.updateLikes(data))
                     .catch(err => console.log(`Error: ${err}`))
-                }
-            },
-            renderDeleteButton: function renderDeleteButton() {
-                if(item.owner._id === userInfo.getId()) {
-                    this._cardDeleteButton.classList.add("card__delete-button_active");
-                    this._cardDeleteButton.disabled = false;
-                } else {
-                    this._cardDeleteButton.classList.remove("card__delete-button_active");
-                    this._cardDeleteButton.disabled = true;
                 }
             },
             handleDeleteButton: function handleDeleteButton() {

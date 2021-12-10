@@ -1,15 +1,26 @@
 export default class Card {
-    constructor({data, handleCardClick, handleLikeButton, renderDeleteButton, handleDeleteButton, cardSelector}) {
+    constructor({data, currentUserId, handleCardClick, handleLikeButton, handleDeleteButton, cardSelector}) {
         this._name = data.name;
         this._link = data.link;
         this._id = data._id;
         this._likes = data.likes;
+        this._ownerId = data.owner._id;
+        this._userId = currentUserId;
         
         this._handleCardClick = handleCardClick;
         this._handleLikeButton = handleLikeButton;
-        this._renderDeleteButton = renderDeleteButton;
         this._handleDeleteButton = handleDeleteButton;
         this._cardSelector = cardSelector;
+    }
+
+    _renderDeleteButton() {
+        if(this._ownerId === this._userId) {
+            this._cardDeleteButton.classList.add("card__delete-button_active");
+            this._cardDeleteButton.disabled = false;
+        } else {
+            this._cardDeleteButton.classList.remove("card__delete-button_active");
+            this._cardDeleteButton.disabled = true;
+        }
     }
 
     _setEventListeners() {
