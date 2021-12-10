@@ -32,7 +32,6 @@ avatarButton.src = avatarButtonImage;
 const userInfo = new UserInfo(profileName, profileProfession, profileAvatar);
 
 api.getUserInfo().then(data => {
-    console.log(data)
     userInfo.setUserInfo(data);
 })
 .catch(err => console.log(`Error: ${err}`));
@@ -72,7 +71,7 @@ const originalCards = new Section({
                 }
             },
             renderDeleteButton: function renderDeleteButton() {
-                if(item.owner.name === ("Fred Jodozi")) {
+                if(item.owner._id === userInfo.getId()) {
                     this._cardDeleteButton.classList.add("card__delete-button_active");
                     this._cardDeleteButton.disabled = false;
                 } else {
