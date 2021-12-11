@@ -35,6 +35,12 @@ export default class Card {
     _renderLikes() {
         this._cardLikesCounter = this._element.querySelector(".card__like-counter");
         this._cardLikesCounter.textContent = this._likes.length;
+
+        this._likes.forEach(like => {
+            if(like._id === this._userId){
+                this._cardLikeButton.classList.add("card__like-button_active");
+            }
+        });
     }
 
     updateLikes(data) {
