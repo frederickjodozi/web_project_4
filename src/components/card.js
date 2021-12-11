@@ -39,6 +39,8 @@ export default class Card {
         this._likes.forEach(like => {
             if(like._id === this._userId){
                 this._cardLikeButton.classList.add("card__like-button_active");
+            } else {
+                this._cardLikeButton.classList.remove("card__like-button_active");
             }
         });
     }
