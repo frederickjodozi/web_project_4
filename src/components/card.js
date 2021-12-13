@@ -46,9 +46,8 @@ export default class Card {
     }
 
     updateLikes(data) {
-        this._cardLikeButton.classList.toggle("card__like-button_active");
-        this._cardLikesCounter = this._element.querySelector(".card__like-counter");
-        this._cardLikesCounter.textContent = data.likes.length;
+        this._likes = data.likes;
+        this._renderLikes();
     }
 
     _getTemplate() {
