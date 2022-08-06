@@ -1,7 +1,7 @@
 {
   "name": "web_project_4",
   "version": "1.0.0",
-  "description": "My fourth project at Practicum. This is my first interactive website using Javascript. The user can enter his name and profession into a modal form and the submitted information appears as part of the HTML code in the website. The project also includes the most complex CSS grid design I have programmed to date.",
+  "description": "My fourth project in the Practicum program and the first one using JavaScript",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Fred776/web_project_4.git"
+    "url": "https://github.com/frederickjodozi/web_project_4"
   },
   "author": "Frederick Jodozi",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Fred776/web_project_4/issues"
   },
-  "homepage": "https://github.com/Fred776/web_project_4#readme",
+  "homepage": "https://frederickjodozi.github.io/web_project_4",
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
