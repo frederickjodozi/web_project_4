@@ -1,13 +1,18 @@
-# web_project_4: My fourth project with TripleTen.
+# *web_project_4: My fourth project with TripleTen.*
+This is my first project using Javascript. It started as a simple vanilla javascript project where the user could create a profile and location cards set on places of interests in the United States and abroad. After multiple iterations it is now connected to a backend Api built by TripleTen to store locations and profiles from the entire student cohort and render them at load time.
 
-This is my first project using Javascript. In its earlier iterations it would render a webpage in which the user could create a profile, edit it and add to a preexisting set of location cards set on places of interest inside the United States and abroad. As there was no backend database connected to it, the saved profile and location cards would only be available as long as the page was left open.  
+## *Features*
+The site's main javascript components are as follows:
+- A frontend api used to create, read, update and delete user and location data
+- A Location card component that clones an HTML card template and hydrates it with the data received from the API.
+- Form popups that create and update data upon submission.
+- A Form Validator used to validate all forms.
+  
+Webpack has been used to compile the site.
 
-After multiple iterations and improvements, the project is now connected to a backend api created by TripleTen which saves user information and cards from the entire student cohort and renders them on the page at load time. 
+## *Contributions*
+This project can be used as learning tool for people beginning to learn Javascript. It can be cloned on a local machine for studying and/or editing, and relevant pull requests will be accepted! Required work on the project currently include adding the built-in Javascript date object to update the date listed in the footer section. It is worth to note that since this project is connected to TripleTen's backend, the api key required to manipulate data has been removed from the project to prevent non-students from adding or deleting data. 
 
-The site's main javascript components are the frontend api used to fetch data, interactive popups which display forms and location images, and the location cards. All Popup forms use form validation.
+**Thanks again to TripleTen for providing me with the materials and instructions to build this project!**
 
-Webpack as been used to compile the site.
-
-Thanks again to TripleTen for providing me with the materials and instructions to build this project!
-
-[web_project_4: Around the U.S.](https://frederickjodozi.github.io/web_project_4/)
+### [web_project_4: Around the U.S.](https://frederickjodozi.github.io/web_project_4/)
