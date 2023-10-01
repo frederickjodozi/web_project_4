@@ -1,24 +1,24 @@
 {
   "name": "web_project_4",
   "version": "1.0.0",
-  "description": "My fourth project in the Practicum program and the first one using JavaScript",
+  "author": "Frederick Jodozi",
+  "description": "My first project using JavaScript: A Frontend site where users can create profiles and location cards",
   "main": "index.js",
-  "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack serve",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
-  },
+  "homepage": "https://frederickjodozi.github.io/web_project_4",
   "repository": {
     "type": "git",
     "url": "https://github.com/frederickjodozi/web_project_4"
   },
-  "author": "Frederick Jodozi",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/frederickjodozi/web_project_4/issues"
   },
-  "homepage": "https://frederickjodozi.github.io/web_project_4",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve",
+    "pre-deploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
